@@ -16,3 +16,4 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/responsive.scss', 'public/css')
    .sourceMaps()
    .browserSync('laravel-ecommerce-example.test');
+mix.sass('resources/sass/main.scss', 'pulic/js/main.css')
