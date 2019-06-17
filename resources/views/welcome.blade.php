@@ -30,6 +30,7 @@
 	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 	<link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/main.css"> 
+    <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
 </head>
 
 <body>
@@ -1012,6 +1013,11 @@
 	<script src="js/countdown.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script> 	
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+    <script src="{{ asset('js/algolia.js') }}"></script>
+
+    <script src="{{ asset('js/algolia.js') }}"></script>
 <!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
