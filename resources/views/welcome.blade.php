@@ -45,16 +45,7 @@
 						<div class="row single-slide align-items-center d-flex">
 							<div class="col-lg-5 col-md-6">
 								<div class="banner-content">
-									<h1>Fresh Foods<br>Delivery</h1>
-									<p>We deliver fresh vegitable, fruits and dry fruits at a effortable price. We also sell special namkins and pickles of Berhampur.</p>
-									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-										<span class="add-text text-uppercase">Add to Bag</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7">
-								<div class="banner-img">
+									<h1>Fresh Fruit, Vegetables<br>and namkins</h1>
 								</div>
 							</div>
 						</div>
@@ -62,16 +53,7 @@
 						<div class="row single-slide">
 							<div class="col-lg-5">
 								<div class="banner-content">
-									<h1>Fresh Foods<br>Delivery</h1>
-									<p>We deliver fresh vegitable, fruits and dry fruits at a effortable price. We also sell special namkins and pickles of Berhampur.</p>
-									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-										<span class="add-text text-uppercase">Add to Bag</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7">
-								<div class="banner-img">
+									<h1>Fresh Fruit, Vegetables<br></h1>
 								</div>
 							</div>
 						</div>
@@ -87,7 +69,7 @@
 		<div class="container">
 			<div class="row features-inner">
 				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
 							<img src="img/features/f-icon1.png" alt="">
@@ -97,17 +79,7 @@
 					</div>
 				</div>
 				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="img/features/f-icon2.png" alt="">
-						</div>
-						<h6>Return Policy</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
 							<img src="img/features/f-icon3.png" alt="">
@@ -117,7 +89,7 @@
 					</div>
 				</div>
 				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
 							<img src="img/features/f-icon4.png" alt="">
@@ -839,7 +811,8 @@
 	</section>
 	<!-- End exclusive deal Area -->
 
-	<!-- Start brand Area -->
+    <!-- Start brand Area -->
+
 	<section class="brand-area section_gap">
 		<div class="container">
 			<div class="row">
