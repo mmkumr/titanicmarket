@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\Category;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
@@ -14,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $categories = Category::orderby('name', 'asc')->get();
+        view()->share('categories', $categories);
     }
 
     /**

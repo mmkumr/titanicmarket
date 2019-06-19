@@ -7871,7 +7871,8 @@ label {
 ============================================================================================ */
 
 .footer-area {
-  padding-top: 100px;
+  padding-top: 50px;
+  margin-bottom: -25px;
   background-color: #222222;
 }
 
