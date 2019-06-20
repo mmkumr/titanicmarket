@@ -30,7 +30,7 @@
 						<div class="row single-slide align-items-center d-flex">
 							<div class="col-lg-5 col-md-6">
 								<div class="banner-content">
-									<h1>Fresh Fruit, Vegetables,<br>namkins, etc.</h1>
+									<h1>Fresh Fruit, Vegetables,<br>namkins etc.</h1>
 								</div>
 							</div>
 						</div>
@@ -38,7 +38,7 @@
 						<div class="row single-slide">
 							<div class="col-lg-5">
 								<div class="banner-content">
-									<h1>Fresh Fruit, Vegetables<br>and namkins</h1>
+									<h1>Fresh Fruit, Vegetables<br>and namkins etc.</h1>
 								</div>
 							</div>
 						</div>
