@@ -12,7 +12,7 @@
           @include('partials.menus.main-right')
           @endif
       </div>
-    </div> <!-- end top-nav -->
+    </div>  
 </header>
 -->
 <header class="header_area sticky-header">
@@ -40,23 +40,31 @@
                                 @endforeach
                             </ul>
                         </li>
-                        
+                        @guest
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Create account</a></li>
+                        @endguest
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        @guest 
+                        @else 
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                             aria-expanded="false">Pages</a>
+                             aria-expanded="false"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu">
-                                @guest
-                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Create account</a></li>
-                                @else
-                                <li class="nav-item"><a class="nav-link" href="{{ route('users.edit') }}">My Account</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
-                                @endguest
-                                <li class="nav-item"><a class="nav-link" href="elements.html">Tracking</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}">Orders</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('users.edit') }}">Edit account</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                </li>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+   
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        @endguest
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item"><a href="{{ route('cart.index') }}" class="cart"><span class="ti-bag"></span>@if (Cart::instance('default')->count() > 0)<span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>@endif</a></li>

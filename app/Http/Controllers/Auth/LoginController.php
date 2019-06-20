@@ -47,7 +47,7 @@ class LoginController extends Controller
     {
         session()->put('previousUrl', url()->previous());
 
-        return view('login');
+        return view('auth.login');
     }
 
     // override logout so cart contents remain:

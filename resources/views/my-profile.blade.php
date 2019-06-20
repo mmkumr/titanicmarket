@@ -44,7 +44,6 @@
             <div class="products-header">
                 <h1 class="stylish-heading">My Profile</h1>
             </div>
-
             <div>
                 <form action="{{ route('users.update') }}" method="POST">
                     @method('patch')

@@ -16,23 +16,8 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<title>Vegifruit</title>
-	<!--
-		CSS
-		============================================= -->
-	<link rel="stylesheet" href="css/linearicons.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/themify-icons.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/owl.carousel.css">
-	<link rel="stylesheet" href="css/nice-select.css">
-	<link rel="stylesheet" href="css/nouislider.min.css">
-	<link rel="stylesheet" href="css/ion.rangeSlider.css" />
-	<link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-	<link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/main.css"> 
-    <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
-</head>
-
+	</head>
+    @include('partials.css')
 <body>
     @include('partials.nav')
 	<!-- start banner Area -->
@@ -101,8 +86,8 @@
 			</div>
 		</div>
 	</section>
-	<!-- end features Area -->
-    @php ($i = 0)
+    <!-- end features Area -->
+    @php ( $i = 0 )
     @php ( $col = array(0, 8, 4, 4, 8) )
     <!-- Start category Area -->
 	<section class="category-area">
@@ -115,7 +100,7 @@
 						<div class="col-lg-{{$col[$i]}} col-md-{{$col[$i]}}">
 							<div class="single-deal">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/category/c{{$i}}.jpg" alt="">
+								<img class="img-fluid w-100" src="img/category/{{$category->name}}.jpg" alt="">
 								<a href="img/category/c1.jpg" class="img-pop-up" target="_blank">
 									<div class="deal-details">
 										<h6 class="deal-title">{{$category->name}}</h6>
