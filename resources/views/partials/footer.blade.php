@@ -10,7 +10,7 @@
                 <div class="single-footer-widget">
                     <h6>About Us</h6>
                     <p>
-                       We deliver fresh fruits, vegitables, dry fruits and Berhampur special(namkins and pickles).
+                       We deliver fresh fruits, vegitables, dry fruits and Berhampur special(namkins, pickles, papads etc) items.
                     </p>
                 </div>
             </div>

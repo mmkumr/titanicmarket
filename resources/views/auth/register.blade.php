@@ -1,61 +1,66 @@
-@extends('layout')
+@extends ('layout')
+@section ('title', 'Register')
 
-@section('title', 'Sign Up for an Account')
-
-@section('content')
-<div class="container">
-    <div class="auth-pages">
-        <div>
-            @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-            @endif @if(count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            <h2>Create Account</h2>
-            <div class="spacer"></div>
-
-            <form method="POST" action="{{ route('register') }}">
-                {{ csrf_field() }}
-
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required autofocus>
-
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
-
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" placeholder="Password" required>
-
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password"
-                    required>
-
-                <div class="login-container">
-                    <button type="submit" class="auth-button">Create Account</button>
-                    <div class="already-have-container">
-                        <p><strong>Already have an account?</strong></p>
-                        <a href="{{ route('login') }}">Login</a>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-
-        <div class="auth-right">
-            <h2>New Customer</h2>
-            <div class="spacer"></div>
-            <p><strong>Save time now.</strong></p>
-            <p>Creating an account will allow you to checkout faster in the future, have easy access to order history and customize your experience to suit your preferences.</p>
-
-            &nbsp;
-            <div class="spacer"></div>
-            <p><strong>Loyalty Program</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt debitis, amet magnam accusamus nisi distinctio eveniet ullam. Facere, cumque architecto.</p>
-        </div>
-    </div> <!-- end auth-pages -->
-</div>
+@section ('content')
+    <!--================Login Box Area =================-->
+    <section class="login_box_area section_gap">
+        <div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<img class="img-fluid" src="img/login.jpg" alt="">
+						<div class="hover">
+							<h4>Already have an account!!</h4>
+                            <a class="primary-btn" href="{{ route('login') }}">Login</a><br>
+						</div>
+					</div>
+				</div>
+                <div class="col-lg-6">
+                    <div class="login_form_inner">
+                        @if (session()->has('success_message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success_message') }}
+                            </div>
+                            @endif @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            <h3>Create Account</h3>
+                            
+                        <form class="row login_form" action="{{ route('register') }}" method="POST" id="contactForm">
+                            <div class="col-lg-6 col-md-6">
+                                    <img class="img-fluid w-100" src="img/users/default.png" alt="">
+                            </div>
+                            <input id="profile_pic" name="profile_pic" type="file">
+                            {{ csrf_field() }}
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="name" placeholder = 'Name' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'"required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="email" name="email" placeholder = 'Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"required>
+                            </div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="password-confirm" name="password_confirmation"  placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required>
+							</div>
+                            <div class="col-md-12 form-group">
+								<input type="tel" class="form-control" id="name" name="number"  placeholder = 'Phone Number' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required>
+                            </div>
+							<div class="col-md-12 form-group">
+								<button type="submit" class="primary-btn">Log In</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->
 @endsection

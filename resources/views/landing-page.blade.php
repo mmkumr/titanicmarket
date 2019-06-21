@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="zxx" class="no-js">
+@extends ('layout')
+@section ('title', 'Home')
 
-<head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="img/fav.png">
-	<!-- Author Meta -->
-	<meta name="author" content="CodePixar">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>Vegifruit</title>
-	</head>
-    @include('partials.css')
-<body>
-    @include('partials.nav')
+@section ('content')
 	<!-- start banner Area -->
 	<section class="banner-area">
 		<div class="container">
@@ -910,9 +892,4 @@
 		</div>
 	</section>
 	<!-- End related-product Area -->
-
-    @include('partials.footer');
-    @include('partials.js');
-	</body>
-
-</html>
+@endsection

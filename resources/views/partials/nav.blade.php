@@ -44,7 +44,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Create account</a></li>
                         @endguest
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact us</a></li>
                         @guest 
                         @else 
                         <li class="nav-item submenu dropdown">
@@ -53,6 +53,8 @@
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}">Orders</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('users.edit') }}">Edit account</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Account details</a></li>
+
                                 <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Logout</a>

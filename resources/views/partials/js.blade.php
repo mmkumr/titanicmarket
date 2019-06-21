@@ -15,7 +15,7 @@
 
     <script src="{{ asset('js/algolia.js') }}"></script>
 <!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF3OlFHBtuyIec5x2Nc2RQlCO52nN5xcU"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/main.js"></script>
 
