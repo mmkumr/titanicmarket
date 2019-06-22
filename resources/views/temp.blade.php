@@ -1,3 +1,207 @@
+@extends ('layout')
+@section ('title', 'cart')
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                @if (session()->has('success_message'))
+                <div class="alert alert-success">
+                    {{ session()->get('success_message') }}
+                </div>
+                @endif
+
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <div class="table-responsive">
+                @if (Cart::count() > 0)
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @php ($i = 0) 
+                        @foreach (Cart::content() as $item)
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <a href="{{ route('shop.show', $item->model->slug) }}">
+                                                <img src="{{ productImage($item->model->image) }}" alt="item">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h3>{{ $item->model->name }}</h3><br>
+                                            <p>{{ $item->model->details }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>{{presentPrice($item->subtotal)}}</h5>
+                                </td>
+                                <td>
+                                    <div class="product_count">
+                                        <input type="number" name="qty" id="sst" max="7" min="1" value="1" title="Quantity: " class="input-text qty" onchange="document.getElementsByTagName('h4')['{{$i}}'].innerHTML = '₹' + document.getElementsByTagName('input')[{{$i}}].value * document.getElementsByTagName('h5')['{{$i}}'].innerHTML.slice(1);">
+                                       <td>
+                                            <h4>₹{{ trim(presentPrice($item->subtotal),"₹")}}</h4>
+                                        </td>
+                                    </div>
+                                </td>
+                                <td>
+                                <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+
+                                    <button type="submit" class="cart-options">Remove</button>
+                                </form>
+
+                                <form action="{{ route('cart.switchToSaveForLater', $item->rowId) }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <button type="submit" class="cart-options">Save for Later</button>
+                                </form>
+                                </td>
+                            </tr>
+                            @php ($i = $i + 1)
+                            @endforeach
+                            <tr>
+                            </tr>
+                            <tr class="bottom_button">
+                                <td>
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <div class="cupon_text d-flex align-items-center">
+                                        <form action="{{ route('coupon.store') }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="text" name="coupon_code" placeholder="Coupon Code">
+                                            <button type="submit" class="primary-btn">Apply</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <h5>Subtotal</h5>
+                                </td>
+                                <td>
+                                    <h5>$2160.00</h5>
+                                </td>
+                            </tr>
+                            <tr class="shipping_area">
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <tr class="out_button_area">
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <a class="gray_btn" href="/">Continue Shopping</a>
+                                        <a class="primary-btn" href="{{ route('checkout.index') }}">Proceed to checkout</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @else
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <h3 align = center>No items in the cart!</h3>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bottom_button">
+                                <tr class="out_button_area">
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <a class="gray_btn" href="#">Continue Shopping</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">

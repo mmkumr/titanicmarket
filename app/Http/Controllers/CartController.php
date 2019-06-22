@@ -18,7 +18,7 @@ class CartController extends Controller
     {
         $mightAlsoLike = Product::mightAlsoLike()->get();
 
-        return view('cart')->with([
+        return view('temp')->with([
             'mightAlsoLike' => $mightAlsoLike,
             'discount' => getNumbers()->get('discount'),
             'newSubtotal' => getNumbers()->get('newSubtotal'),

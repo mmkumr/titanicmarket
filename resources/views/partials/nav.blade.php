@@ -36,7 +36,7 @@
                              aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu">
                                 @foreach ($categories as $category)
-                                    <li class="nav-item"><a class="nav-link" href="category.html">{{ $category->name }}</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ route('shop.index', ['category' => $category->slug]) }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </li>

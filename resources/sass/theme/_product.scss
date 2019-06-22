@@ -874,7 +874,7 @@
 /* Cart Area css
 ============================================================================================ */
 .cart_area{
-	padding-top: 100px;
+	padding-top: 140px;
 	padding-bottom: 100px;
 }
 .cart_inner{
@@ -965,8 +965,10 @@
 						display: inline-block;
 						color: $title-color;
 						text-transform: uppercase;
+                        font-size: 14px;
 						font-weight: 500;
 					}
+
 					td{
 						&:last-child{
 							width: 60px;
@@ -985,6 +987,7 @@
 								font-weight: normal;
 								margin-right: -3px;
 								outline: none;
+								padding: 0px 40px;
 								box-shadow: none;
 								@include placeholder{
 									font-size: 14px;
@@ -1126,6 +1129,7 @@
 .gray_btn{
 	line-height: 38px;
 	background: #e8f0f2;
+    height: 40px;
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
 	padding: 0px 40px;
@@ -1133,6 +1137,7 @@
 	color: $title-color;
 	text-transform: uppercase;
 	font-weight: 500;
+    font-size: 12px;
 }
 /* End Cart Area css
 ============================================================================================ */
