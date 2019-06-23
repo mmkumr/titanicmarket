@@ -50,20 +50,28 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>{{presentPrice($item->subtotal)}}</h5>
+                                    <h5>{{presentPrice($item->model->price)}}</h5>
                                 </td>
                                 <td>
-                                    @php ($tprice = trim(presentPrice($item->subtotal), '₹'))
+                                    @php ($tprice = $item->model->price)
                                     <div class="product_count">
-                                    <select class="quantity" data-id="{{ $item->rowId }}" data-productQuantity="{{ $item->model->quantity }}" onchange="element = document.getElementsByTagName('select')['{{$t}}'];
+                                    <select class="quantity" data-id="{{ $item->rowId }}" data-productQuantity="{{ $item->model->quantity }}" onchange="x = {{$tprice}} * (this.value); document.getElementsByTagName('h4')[{{$t}}].innerHTML = '₹' + x/100;
+                                   var sum = 0;
+                                   Array.from(document.querySelectorAll('h4')).forEach(function(element) { 
+                                   sum += Number(element.innerHTML.slice(1)) 
+                                   });
+                                   total = document.getElementsByTagName('p')
+                                   total[total.length-6].innerHTML = '₹' + sum
+                                   element = document.getElementsByTagName('select')['{{$t}}'];
                                    const id = element.getAttribute('data-id');
                                    const productQuantity = element.getAttribute('data-productQuantity');
                                    axios.patch(`/cart/${id}`, {
                         										quantity: this.value,
                         										productQuantity: productQuantity
-                                                              })
+                                                               });
+                                   sum = 0
+
                                         ">
-<!-- x = {{$tprice}} * (this.selectedIndex + 1); document.getElementsByTagName('h4')[{{$t}}].innerHTML = '₹' + x<Paste> -->
                                             @for ($i = 1; $i < 5 + 1 ; $i++)
                                                 <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                             @endfor
@@ -71,7 +79,7 @@
                                         </select>
                                     </div>
                                        <td> 
-                                           <h4>₹{{$tprice}}</h4>
+                                           <h4>{{presentPrice($tprice * $item->qty)}}</h4>
                                         </td>
                                     </div>
                                 </td>
@@ -135,7 +143,7 @@
                                     <h3>Subtotal</h3>
                                     
                                     @if (session()->has('coupon'))
-                                    <p align = center>{{ Cart::count() }}</p>
+                                    <p align = center>{{ presentPrice($newTotal) }}</p>
                                     <p align = center>- {{ presentPrice($discount) }}</p>
                                     @endif
                                 </td>
