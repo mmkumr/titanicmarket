@@ -61,7 +61,8 @@
                                    sum += Number(element.innerHTML.slice(1)) 
                                    });
                                    total = document.getElementsByTagName('p')
-                                   total[total.length-6].innerHTML = '₹' + sum
+                                   total[{{ Cart::instance('saveForLater')->count() }}+total.length-7].innerHTML = '₹' + sum
+                                    total[{{ Cart::instance('saveForLater')->count() }}+total.length-5].innerHTML = '₹' + (sum - {{ trim(presentPrice($discount), '₹') }})
                                    element = document.getElementsByTagName('select')['{{$t}}'];
                                    const id = element.getAttribute('data-id');
                                    const productQuantity = element.getAttribute('data-productQuantity');
@@ -141,11 +142,10 @@
                                 </td>
                                 <td>
                                     <h3>Subtotal</h3>
-                                    
-                                    @if (session()->has('coupon'))
-                                    <p align = center>{{ presentPrice($newTotal) }}</p>
-                                    <p align = center>- {{ presentPrice($discount) }}</p>
-                                    @endif
+                                    <p align = 'center'>₹{{ trim(presentPrice($newTotal), '₹') + trim(presentPrice($discount), '₹') }}</p>
+                                    <p align = 'center'>- {{ presentPrice($discount) }}</p>
+                                    <h5 align = 'center'>Total</h5>
+                                    <p align = 'center'>₹{{ trim(presentPrice($newTotal), '₹') }}</p>
                                 </td>
                                 <td>
                                 </td>
