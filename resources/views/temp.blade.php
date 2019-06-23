@@ -28,10 +28,12 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total</th>
+                                <th scope="col">Buttons</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                        @php ($i = 0) 
+                        @php ($t = 0) 
                         @foreach (Cart::content() as $item)
                             <tr>
                                 <td>
@@ -51,10 +53,25 @@
                                     <h5>{{presentPrice($item->subtotal)}}</h5>
                                 </td>
                                 <td>
+                                    @php ($tprice = trim(presentPrice($item->subtotal), '₹'))
                                     <div class="product_count">
-                                        <input type="number" name="qty" id="sst" max="7" min="1" value="1" title="Quantity: " class="input-text qty" onchange="document.getElementsByTagName('h4')['{{$i}}'].innerHTML = '₹' + document.getElementsByTagName('input')[{{$i}}].value * document.getElementsByTagName('h5')['{{$i}}'].innerHTML.slice(1);">
-                                       <td>
-                                            <h4>₹{{ trim(presentPrice($item->subtotal),"₹")}}</h4>
+                                    <select class="quantity" data-id="{{ $item->rowId }}" data-productQuantity="{{ $item->model->quantity }}" onchange="element = document.getElementsByTagName('select')['{{$t}}'];
+                                   const id = element.getAttribute('data-id');
+                                   const productQuantity = element.getAttribute('data-productQuantity');
+                                   axios.patch(`/cart/${id}`, {
+                        										quantity: this.value,
+                        										productQuantity: productQuantity
+                                                              })
+                                        ">
+<!-- x = {{$tprice}} * (this.selectedIndex + 1); document.getElementsByTagName('h4')[{{$t}}].innerHTML = '₹' + x<Paste> -->
+                                            @for ($i = 1; $i < 5 + 1 ; $i++)
+                                                <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                            @endfor
+
+                                        </select>
+                                    </div>
+                                       <td> 
+                                           <h4>₹{{$tprice}}</h4>
                                         </td>
                                     </div>
                                 </td>
@@ -73,7 +90,7 @@
                                 </form>
                                 </td>
                             </tr>
-                            @php ($i = $i + 1)
+                            @php ($t = $t + 1)
                             @endforeach
                             <tr>
                             </tr>
@@ -87,7 +104,7 @@
 
                                 </td>
                                 <td>
-                                    <div class="cupon_text d-flex align-items-center">
+                                    <div class="cupon_text d-flex align-items-center" align = right>
                                         <form action="{{ route('coupon.store') }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="text" name="coupon_code" placeholder="Coupon Code">
@@ -104,10 +121,25 @@
 
                                 </td>
                                 <td>
-                                    <h5>Subtotal</h5>
+                                    @if (session()->has('coupon'))
+                                    <h3>Coupon code</h3>
+                                        Code ({{ session()->get('coupon')['name'] }})
+                                        <form action="{{ route('coupon.destroy') }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('delete') }}
+                                            <button type="submit" style="font-size:14px;">Remove</button>
+                                        </form>
+                                        @endif
                                 </td>
                                 <td>
-                                    <h5>$2160.00</h5>
+                                    <h3>Subtotal</h3>
+                                    
+                                    @if (session()->has('coupon'))
+                                    <p align = center>{{ Cart::count() }}</p>
+                                    <p align = center>- {{ presentPrice($discount) }}</p>
+                                    @endif
+                                </td>
+                                <td>
                                 </td>
                             </tr>
                             <tr class="shipping_area">
@@ -171,7 +203,7 @@
                                 </td>
                                 <td>
                                     <div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="gray_btn" href="#">Continue Shopping</a>
+                                        <a class="gray_btn" href="/">Continue Shopping</a>
                                     </div>
                                 </td>
                             </tr>
@@ -405,8 +437,8 @@
                         productQuantity: productQuantity
                     })
                     .then(function (response) {
-                        // console.log(response);
-                        window.location.href = '{{ route('cart.index') }}'
+                        console.log(response);
+                        //window.location.href = '{{ route('cart.index') }}'
                     })
                     .catch(function (error) {
                         // console.log(error);
