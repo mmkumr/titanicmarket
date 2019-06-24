@@ -18,7 +18,7 @@ class CartController extends Controller
     {
         $mightAlsoLike = Product::mightAlsoLike()->get();
 
-        return view('temp')->with([
+        return view('cart')->with([
             'mightAlsoLike' => $mightAlsoLike,
             'discount' => getNumbers()->get('discount'),
             'newSubtotal' => getNumbers()->get('newSubtotal'),
@@ -112,6 +112,6 @@ class CartController extends Controller
         Cart::instance('saveForLater')->add($item->id, $item->name, 1, $item->price)
             ->associate('App\Product');
 
-        return redirect()->route('cart.index')->with('success_message', 'Item has been Saved For Later!');
+        return redirect()->route('cart.index')->with('success_message', 'Item has been moved to wishlist!');
     }
 }
