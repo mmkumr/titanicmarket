@@ -1,8 +1,6 @@
 <?php
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contact', 'ContactController@index')->name('contact');
+Route::post('/contact', ['as'=>'contact.store','uses'=>'ContactController@store']);
 Route::get('/', 'LandingPageController@index')->name('landing-page');
 Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');

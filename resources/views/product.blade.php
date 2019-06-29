@@ -1,109 +1,70 @@
-@extends('layout')
+@extends ('layout')
 
-@section('title', $product->name)
+@section ('title', $product->name)
 
-@section('extra-css')
-    <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
-@endsection
+@section ('content')
 
-@section('content')
-
-    @component('components.breadcrumbs')
-        <a href="/">Home</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span><a href="{{ route('shop.index') }}">Shop</a></span>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>{{ $product->name }}</span>
-    @endcomponent
-
-    <div class="container">
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-
-        @if(count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </div>
-
-    <div class="product-section container">
-        <div>
-            <div class="product-section-image">
-                <img src="{{ productImage($product->image) }}" alt="product" class="active" id="currentImage">
-            </div>
-            <div class="product-section-images">
-                <div class="product-section-thumbnail selected">
-                    <img src="{{ productImage($product->image) }}" alt="product">
-                </div>
-
-                @if ($product->images)
-                    @foreach (json_decode($product->images, true) as $image)
-                    <div class="product-section-thumbnail">
-                        <img src="{{ productImage($image) }}" alt="product">
+	<!--================Single Product Area =================-->
+	<div class="product_image_area" style = "padding:150px">
+		<div class="container">
+			<div class="row s_product_inner">
+                <div class="col-lg-6">
+                @if (session()->has('success_message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success_message') }}
                     </div>
-                    @endforeach
                 @endif
-            </div>
+
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                    <div class="s_Product_carousel">
+                        <div class="single-prd-item">
+                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt="">
+                        </div>
+                        @if ($product->images)
+                            @foreach (json_decode($product->images, true) as $image)
+                            <div class="single-prd-item">
+                                <img class="img-fluid" src="{{ productImage($image) }}" alt="">
+                            </div>
+                        @endforeach
+                    @endif
+					</div>
+				</div>
+				<div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
+						<h3>{{ $product->name }}</h3>
+						<h2>{{ $product->presentPrice() }}</h2>
+						<ul class="list">
+							<li><span>Category</span> : {{$categories->where('id', $cid)->first()->name}}</li>
+							<li><span>Availibility</span> : {!! $stockLevel !!}</li>
+						</ul>
+                        <div class="card_area d-flex align-items-center">
+                        @if ($product->quantity > 0)
+                        <form action="{{ route('cart.store', $product) }}" method="POST" id = "cart">
+                            {{ csrf_field() }}
+                        </form>
+                            <a class="primary-btn" href="#" onclick="document.getElementById('cart').submit()">Add to Cart</a>
+                        @endif
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================End Single Product Area =================-->
+
+	<!--================Product Description Area =================-->
+	<section class="product_description_area">
+		<div class="container">
+		    <h1>Description</h1>	
+                    <p>{{$product->description}}</p>
         </div>
-        <div class="product-section-information">
-            <h1 class="product-section-title">{{ $product->name }}</h1>
-            <div class="product-section-subtitle">{{ $product->details }}</div>
-            <div>{!! $stockLevel !!}</div>
-            <div class="product-section-price">{{ $product->presentPrice() }}</div>
-
-            <p>
-                {!! $product->description !!}
-            </p>
-
-            <p>&nbsp;</p>
-
-            @if ($product->quantity > 0)
-                <form action="{{ route('cart.store', $product) }}" method="POST">
-                    {{ csrf_field() }}
-                    <button type="submit" class="button button-plain">Add to Cart</button>
-                </form>
-            @endif
-        </div>
-    </div> <!-- end product-section -->
-
-    @include('partials.might-like')
-
-@endsection
-
-@section('extra-js')
-    <script>
-        (function(){
-            const currentImage = document.querySelector('#currentImage');
-            const images = document.querySelectorAll('.product-section-thumbnail');
-
-            images.forEach((element) => element.addEventListener('click', thumbnailClick));
-
-            function thumbnailClick(e) {
-                currentImage.classList.remove('active');
-
-                currentImage.addEventListener('transitionend', () => {
-                    currentImage.src = this.querySelector('img').src;
-                    currentImage.classList.add('active');
-                })
-
-                images.forEach((element) => element.classList.remove('selected'));
-                this.classList.add('selected');
-            }
-
-        })();
-    </script>
-
-    <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
-
-@endsection
+	</section>
+	<!--================End Product Description Area =================-->

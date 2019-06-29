@@ -19,9 +19,7 @@
                     <h6>Newsletter</h6>
                     <p>Stay update with our latest</p>
                     <div class="" id="mc_embed_signup">
-
-                        <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                         method="get" class="form-inline">
+                        <form target="_blank" novalidate="true" action="https://gmail.us3.list-manage.com/subscribe/post?u=9058d3096b98d8661cd8d52d2&amp;id=a175cb96ff" name="mc-embedded-subscribe-form "method="post" class="form-inline">
 
                             <div class="d-flex flex-row">
 
@@ -29,7 +27,7 @@
                                  required="" type="email">
 
 
-                                <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                <button class="click-btn btn btn-default" name="subscribe"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                             </div>
                             <div class="info"></div>
                         </form>

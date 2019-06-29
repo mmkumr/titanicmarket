@@ -94,7 +94,6 @@
 
                                 <form action="{{ route('cart.switchToSaveForLater', $item->rowId) }}" method="POST">
                                     {{ csrf_field() }}
-
                                     <button type="submit" class="cart-options">Add to wishlist</button>
                                 </form>
                                 </td>

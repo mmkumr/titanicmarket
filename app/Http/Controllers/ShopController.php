@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\CategoryProduct;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -16,30 +17,33 @@ class ShopController extends Controller
     public function index()
     {
         $pagination = 9;
-        $categories = Category::all();
-
+        $categories = Category::orderby('name', 'asc')->get();
         if (request()->category) {
             $products = Product::with('categories')->whereHas('categories', function ($query) {
                 $query->where('slug', request()->category);
             });
             $categoryName = optional($categories->where('slug', request()->category)->first())->name;
+            $productcount = function($procat) {
+                return CategoryProduct::all()->where('category_id', $procat)->count();
+            };
         } else {
             $products = Product::where('featured', true);
             $categoryName = 'Featured';
         }
 
         if (request()->sort == 'low_high') {
-            $products = $products->orderBy('price')->paginate($pagination);
+            $products = $products->orderBy('price')->get();
         } elseif (request()->sort == 'high_low') {
-            $products = $products->orderBy('price', 'desc')->paginate($pagination);
+            $products = $products->orderBy('price', 'desc')->get();
         } else {
-            $products = $products->paginate($pagination);
+            $products = $products->get();
         }
 
-        return view('shop')->with([
+        return view('category')->with([
             'products' => $products,
             'categories' => $categories,
             'categoryName' => $categoryName,
+            'productcount' => $productcount,
         ]);
     }
 
@@ -53,13 +57,13 @@ class ShopController extends Controller
     {
         $product = Product::where('slug', $slug)->firstOrFail();
         $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
-
         $stockLevel = getStockLevel($product->quantity);
-
+        $cid = CategoryProduct::all()->where('product_id', $product->id)->first()->category_id;
         return view('product')->with([
             'product' => $product,
             'stockLevel' => $stockLevel,
             'mightAlsoLike' => $mightAlsoLike,
+            'cid' => $cid,
         ]);
     }
 
