@@ -12,8 +12,8 @@ class Subscribe extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-        'name' => 'required',
-        'EMAIL' => 'required|email',
+        'name' => 'required|string|max:255',
+        'EMAIL' => 'required|string|email|max:255|unique:subscribe',        
         ]);
 
         $subscriber = Subscriber::create([
