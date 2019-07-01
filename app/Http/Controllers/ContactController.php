@@ -28,8 +28,7 @@ class ContactController extends Controller
            'email' => $request->email,
            'subject' => $request->subject,
            'user_message' => $request->message
-       ), function($message)
-   {
+       ), function($message) {
        $message->from(request()->email);
        $message->to('mmkumr.ping@gmail.com', 'Admin')->subject('Vegifruit Feedback');
    });

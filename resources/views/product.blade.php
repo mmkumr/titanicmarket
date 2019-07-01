@@ -67,4 +67,41 @@
                     <p>{{$product->description}}</p>
         </div>
 	</section>
-	<!--================End Product Description Area =================-->
+    <!--================End Product Description Area =================-->
+	<!-- Start related-product Area -->
+	<section class="related-product-area section_gap_bottom">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 text-center">
+					<div class="section-title">
+						<h1>Deals of the Week</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua.</p>
+					</div>
+				</div>
+            </div>
+            <h2 align = 'center'>Might Also Like to Purchase.</h2>
+			<div class="row" style = "padding-top:20px">
+				<div class="col-lg-12">
+					<div class="row">
+                    @foreach ($mightAlsoLike as $product)
+						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+							<div class="single-related-product d-flex">
+								<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt=""></a>
+								<div class="desc">
+									<a href="{{ route('shop.show', $product->slug) }}" class="title">{{ $product->name }}</a>
+									<div class="price">
+										<h6>{{ $product->presentPrice() }}</h6>
+									</div>
+								</div>
+							</div>
+                        </div>
+                        @endforeach
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End related-product Area -->
+
+@endsection

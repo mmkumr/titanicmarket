@@ -1,8 +1,6 @@
 //--------- start footer Area -------------//
 
 .footer-area {
-	padding-top: 50px;
-	margin-bottom: -25px;
 	background-color: #222222;
 	h6 {
 		color: #fff;
@@ -22,18 +20,9 @@
 	}
 }
 
-.instafeed {
-	margin: -5px;
-	li {
-		overflow: hidden;
-		width: 25%;
-		img {
-			margin: 5px;
-		}
-	}
-}
 
 .footer-social {
+    
 	a {
 		padding-right: 25px;
 		@include transition();

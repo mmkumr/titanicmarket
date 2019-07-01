@@ -1,8 +1,3 @@
-<!--<footer>
-    <div class="footer-content container">
-        <div class="made-with">Made with <i class="fa fa-heart heart"></i> by Andre Madarang</div>
-        {{ menu('footer', 'partials.menus.footer') }}
-</footer>-->
 <footer class="footer-area section_gap">
     <div class="container">
         <div class="row">
@@ -19,23 +14,36 @@
                     <h6>Newsletter</h6>
                     <p>Stay update with our latest</p>
                     <div class="" id="mc_embed_signup">
-                        <form target="_blank" novalidate="true" action="https://gmail.us3.list-manage.com/subscribe/post?u=9058d3096b98d8661cd8d52d2&amp;id=a175cb96ff" name="mc-embedded-subscribe-form "method="post" class="form-inline">
-
+                        <form class="row login_form" action="{{ route('subscribe') }}" method="POST" id="subscribe">
+                            {{ csrf_field() }}
                             <div class="d-flex flex-row">
-
-                                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-                                 required="" type="email">
-
-
-                                <button class="click-btn btn btn-default" name="subscribe"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                <input class="form-control" name="email" placeholder="Enter your E-Mail ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your E-Mail ID'" required type="email"autofocus>
+                                <input class="form-control" name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required>
+                                
                             </div>
+                            <a class="click-btn btn btn-default" href="#" onclick="document.getElementById('subscribe').submit()"><span class="lnr lnr-arrow-right"></span></a>
                             <div class="info"></div>
                         </form>
+                        @if (session()->has('success_message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('success_message') }}
+                                </div>
+                            @endif
+
+                            @if(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
+                <div class="single-footer-widget" style = "padding-left:60px">
                     <h6>Follow Us</h6>
                     <p>Let us be social</p>
                     <div class="footer-social d-flex align-items-center">

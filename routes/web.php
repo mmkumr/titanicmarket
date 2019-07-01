@@ -1,4 +1,5 @@
 <?php
+Route::post('/subscribe', 'Subscribe@store')->name('subscribe');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', ['as'=>'contact.store','uses'=>'ContactController@store']);
 Route::get('/', 'LandingPageController@index')->name('landing-page');

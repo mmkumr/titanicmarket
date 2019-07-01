@@ -7879,8 +7879,6 @@ label {
 ============================================================================================ */
 
 .footer-area {
-  padding-top: 50px;
-  margin-bottom: -25px;
   background-color: #222222;
 }
 
@@ -7900,19 +7898,6 @@ label {
 .copy-right-text i,
 .copy-right-text a {
   color: #ffba00;
-}
-
-.instafeed {
-  margin: -5px;
-}
-
-.instafeed li {
-  overflow: hidden;
-  width: 25%;
-}
-
-.instafeed li img {
-  margin: 5px;
 }
 
 .footer-social a {
