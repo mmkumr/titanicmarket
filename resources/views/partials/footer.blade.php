@@ -17,7 +17,7 @@
                         <form class="row login_form" action="{{ route('subscribe') }}" method="POST" id="subscribe">
                             {{ csrf_field() }}
                             <div class="d-flex flex-row">
-                                <input class="form-control" name="email" placeholder="Enter your E-Mail ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your E-Mail ID'" required type="email"autofocus>
+                                <input class="form-control" id = "subemail" name="email" placeholder="Enter your E-Mail ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your E-Mail ID'" required type="email">
                                 <input class="form-control" name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required>
                                 
                             </div>
@@ -25,12 +25,18 @@
                             <div class="info"></div>
                         </form>
                         @if (session()->has('success_message'))
+                        <script>
+                        document.getElementById("subemail").focus();
+                        </script>
                                 <div class="alert alert-success">
                                     {{ session()->get('success_message') }}
                                 </div>
                             @endif
 
                             @if(count($errors) > 0)
+                            <script>
+                            document.getElementById("subemail").focus();
+                            </script>
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
