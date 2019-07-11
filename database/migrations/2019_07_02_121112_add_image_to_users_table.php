@@ -14,7 +14,7 @@ class AddImageToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function ($table) {
-            $table->string('dp')->nullable()->after('id')->default('users/default.png');
+            $table->string('dp')->nullable()->after('id')->default('users/default.jpg');
         });
     }
 
