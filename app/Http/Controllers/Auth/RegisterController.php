@@ -51,6 +51,12 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'dp' => 'sometimes|image|mimes:jpeg,png,jpg',
+            'phone' => 'required|numeric|digits:10', 
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required', 
+            'pin_code' => 'required|numeric|digits:6',
         ]);
     }
 
@@ -62,10 +68,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+       if(request()->file('dp')) {
+            $image = request()->file('dp');
+            $name = request()->email.'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('img/users');
+            $image->move($destinationPath, $name);
+       }
+       else {
+            $name = "default.png";
+       }
+            return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'dp' => $name,
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'], 
+            'pin_code' => $data['pin_code'],
         ]);
     }
 }

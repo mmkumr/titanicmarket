@@ -29,6 +29,25 @@ class CheckoutController extends Controller
         if (auth()->user() && request()->is('guestCheckout')) {
             return redirect()->route('checkout.index');
         }
+        if (request()->is('guestCheckout')) {
+            $email = "";
+            $name = "";
+            $address = "";
+            $city = "";
+            $pin_code = "";
+            $state = "";
+            $phone = "";
+        }
+        else {
+            $email = auth()->user()->email;
+            $name = auth()->user()->name;
+            $address = auth()->user()->address;
+            $city = auth()->user()->city;
+            $pin_code = auth()->user()->pin_code;
+            $state = auth()->user()->state;
+            $phone = auth()->user()->phone;
+        }
+
 
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
@@ -49,6 +68,14 @@ class CheckoutController extends Controller
             'newSubtotal' => getNumbers()->get('newSubtotal'),
             'newTax' => getNumbers()->get('newTax'),
             'newTotal' => getNumbers()->get('newTotal'),
+            'email' => $email,
+            'name' => $name,
+            'address' => $address,
+            'city' => $city,
+            'pin_code' => $pin_code,
+            'state' => $state,
+            'phone' => $phone,
+
         ]);
     }
 

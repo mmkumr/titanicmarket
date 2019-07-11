@@ -27,8 +27,8 @@ class ShopController extends Controller
                 return CategoryProduct::all()->where('category_id', $procat)->count();
             };
         } else {
-            $products = Product::where('featured', true);
-            $categoryName = 'Featured';
+
+                return redirect()->route('landing-page');
         }
 
         if (request()->sort == 'low_high') {

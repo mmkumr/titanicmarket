@@ -62,13 +62,12 @@
 //------- Start Bread Crumb --------//
 
 .organic-breadcrumb {
-	background: url(http://localhost:8000/img/banner/common-banner.jpg) center no-repeat;
-	background-size: cover;
+	background: url(http://localhost:8000/img/banner/banner-bg.jpg) center no-repeat;	background-size: cover;
 	padding-top: 130px;
-	@media (max-width: 991px) {
+	@media (max-width: auto) {
 		padding-top: 80px;
 	}
-	@media (max-width: 767px) {
+	@media (max-width: auto) {
 		background: none;
 		@include gradient(90deg, $primary-color 0%, $primary-color2 100%);
 	}

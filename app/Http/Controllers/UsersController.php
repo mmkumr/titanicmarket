@@ -11,9 +11,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function edit()
     {
-        //
+        return view('edit-profile')->with('user', auth()->user());
     }
 
     /**
@@ -53,7 +53,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function index()
     {
         return view('my-profile')->with('user', auth()->user());
     }
@@ -70,21 +70,30 @@ class UsersController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,'.auth()->id(),
             'password' => 'sometimes|nullable|string|min:6|confirmed',
+            'dp' => 'sometimes|image|mimes:jpeg,png,jpg',
+            'phone' => 'required|numeric|digits:10', 
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required', 
+            'pin_code' => 'required|numeric|digits:6',
         ]);
-
         $user = auth()->user();
-        $input = $request->except('password', 'password_confirmation');
-
+        $input = $request->except('password', 'password_confirmation', 'dp');
+        if ($request->hasFile('dp')) {
+            $image = request()->file('dp');
+            $name = request()->email.'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('img/users');
+            $image->move($destinationPath, $name);
+            $user->dp = $name;
+        }
         if (! $request->filled('password')) {
             $user->fill($input)->save();
-
-            return back()->with('success_message', 'Profile updated successfully!');
+            return redirect()->route('profile')->with('success_message', 'Profile has been updated successfully!');
         }
-
         $user->password = bcrypt($request->password);
         $user->fill($input)->save();
 
-        return back()->with('success_message', 'Profile (and password) updated successfully!');
+        return redirect()->route('profile')->with('success_message', 'Profile has been updated successfully!');
     }
 
     /**

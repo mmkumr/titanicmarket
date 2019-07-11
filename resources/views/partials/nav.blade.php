@@ -53,7 +53,7 @@
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}">Orders</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('users.edit') }}">Edit account</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Account details</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('profile') }}">Account details</a></li>
 
                                 <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -69,10 +69,12 @@
                         @endguest
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="{{ route('cart.index') }}" class="cart"><span class="ti-bag"></span>@if (Cart::instance('default')->count() > 0)<span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>@endif</a></li>
-      
                         <li class="nav-item">
-                            <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cart.index') }}" class="cart"><span class="ti-bag"></span>@if (Cart::instance('default')->count() > 0)<span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>@endif</a>
+                            <button class="search" style = "padding-left:30px"><span class="lnr lnr-magnifier" id="search"></span></button>
                         </li>
                     </ul>
                 </div>

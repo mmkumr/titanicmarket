@@ -22,7 +22,7 @@ class ContactController extends Controller
         'subject' => 'required',
         'message' => 'required'
         ]);
-        Mail::send('email',
+        Mail::send('emails.contact',
         array(
            'name' => $request->name,
            'email' => $request->email,
@@ -31,7 +31,7 @@ class ContactController extends Controller
        ), function($message) {
        $message->from(request()->email);
        $message->to('mmkumr.ping@gmail.com', 'Admin')->subject('Vegifruit Feedback');
-   });
+                            });
         return back()->with('success_message', 'Thanks for contacting us!');    
     }
 

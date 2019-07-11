@@ -344,9 +344,9 @@
 }
 
 .blog_right_sidebar{
+    display: block;
     border: 1px solid #eeeeee;
-	background: #fafaff;
-    padding: 30px;
+    background: #fafaff;
     .widget_title{
         font-size: 18px;
         line-height: 25px;
@@ -393,6 +393,9 @@
     }
     .author_widget{
         text-align: center;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
         h4{
             font-size: 18px;
             line-height: 20px;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\CategoryProduct;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -15,11 +16,15 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        $products = Product::where('featured', true)->take(8)->inRandomOrder()->get();
-        $categories = Category::orderby('name', 'asc')->get();
+        $products = Product::where('featured', true)->take(9)->inRandomOrder()->get();
+        $latest = Product::orderby('created_at', 'asc')->take(8)->get();
+        $special = Product::with('categories')->whereHas('categories', function ($query) {
+            $query->where('slug', '=', 'namkeens')->orWhere('slug', '=', 'dry-fruits');
+            })->take(8)->inRandomOrder()->get();
         return view('landing-page')->with([
             'products' => $products,
-            'categories' => $categories,
+            'latest' => $latest,
+            'special' => $special,
         ]);
 
     }

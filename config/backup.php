@@ -9,7 +9,7 @@ return [
          * the backups.
          */
         'name' => env('APP_NAME', 'laravel-backup'),
-
+        
         'source' => [
 
             'files' => [
@@ -20,17 +20,14 @@ return [
                 'include' => [
                     base_path(),
                 ],
-
                 /*
                  * These directories and files will be excluded from the backup.
                  *
                  * Directories used by the backup process will automatically be excluded.
                  */
                 'exclude' => [
-                    base_path('vendor'),
-                    base_path('node_modules'),
+                    base_path("../vfwebsite"),
                 ],
-
                 /*
                  * Determines if symlinks should be followed.
                  */
@@ -182,7 +179,7 @@ return [
             /*
              * The number of days for which backups must be kept.
              */
-            'keep_all_backups_for_days' => 7,
+            'keep_all_backups_for_days' => 2,
 
             /*
              * The number of days for which daily backups must be kept.

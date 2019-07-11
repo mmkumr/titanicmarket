@@ -1,5 +1,6 @@
 @extends ('layout')
 @section ('title', 'cart')
+@section ('content')
     <!--================Cart Area =================-->
     <section class="cart_area">
         <div class="container">
@@ -287,3 +288,4 @@
         </div>
     </section>
     <!--================End Cart Area =================-->
+@endsection

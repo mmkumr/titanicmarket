@@ -1536,7 +1536,6 @@ h6 {
   background: transparent;
   border: 0;
   cursor: pointer;
-  padding: 0;
 }
 
 #search_input_box {
@@ -1595,7 +1594,7 @@ h6 {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  padding: 10px 3px;
+  padding-right: 500px;
 }
 
 @media (max-width: 575px) {
@@ -1688,18 +1687,18 @@ h6 {
 }
 
 .organic-breadcrumb {
-  background: url(http://localhost:8000/img/banner/common-banner.jpg) center no-repeat;
+  background: url(http://localhost:8000/img/banner/banner-bg.jpg) center no-repeat;
   background-size: cover;
   padding-top: 130px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: auto) {
   .organic-breadcrumb {
     padding-top: 80px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: auto) {
   .organic-breadcrumb {
     background: none;
     background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
@@ -1903,7 +1902,7 @@ h6 {
 
 .single-deal {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .single-deal .overlay {
@@ -7136,9 +7135,9 @@ label {
 }
 
 .blog_right_sidebar {
+  display: block;
   border: 1px solid #eeeeee;
   background: #fafaff;
-  padding: 30px;
 }
 
 .blog_right_sidebar .widget_title {
@@ -7200,6 +7199,9 @@ label {
 
 .blog_right_sidebar .author_widget {
   text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .blog_right_sidebar .author_widget h4 {

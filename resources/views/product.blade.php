@@ -5,10 +5,10 @@
 @section ('content')
 
 	<!--================Single Product Area =================-->
-	<div class="product_image_area" style = "padding:150px">
+	<div class="product_image_area" style = "padding-top: 150px">
 		<div class="container">
 			<div class="row s_product_inner">
-                <div class="col-lg-6">
+                <div class="col-lg-6  col-md-6 col-sm-6">
                 @if (session()->has('success_message'))
                     <div class="alert alert-success">
                         {{ session()->get('success_message') }}
@@ -71,15 +71,6 @@
 	<!-- Start related-product Area -->
 	<section class="related-product-area section_gap_bottom">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 text-center">
-					<div class="section-title">
-						<h1>Deals of the Week</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-							magna aliqua.</p>
-					</div>
-				</div>
-            </div>
             <h2 align = 'center'>Might Also Like to Purchase.</h2>
 			<div class="row" style = "padding-top:20px">
 				<div class="col-lg-12">

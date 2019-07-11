@@ -44,8 +44,6 @@
 								<input type="password" class="form-control" id="name" name="password" value="{{ old('password') }}" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
 							</div>
 							<div class="col-md-12 form-group">
-							</div>
-							<div class="col-md-12 form-group">
 								<button type="submit" class="primary-btn">Log In</button>
 								<a href="{{ route('password.request') }}">Forgot Password?</a>
 							</div>

@@ -59,7 +59,6 @@
 									<a href="{{ route('shop.show', $product->slug) }}"><h6>{{ $product->name }}</h6></a>
 									<div class="price">
 										<h6>{{ $product->presentPrice() }}</h6>
-										<h6 class="l-through">$150.00</h6>
                                     </div>
                                     <form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
                                         {{ csrf_field() }}

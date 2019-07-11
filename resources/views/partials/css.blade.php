@@ -13,4 +13,3 @@
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">    
     <link rel="stylesheet" href="{{ asset('css/main.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
-

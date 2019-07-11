@@ -32,29 +32,41 @@
                             @endif
                             <h3>Create Account</h3>
                             
-                        <form class="row login_form" action="{{ route('register') }}" method="POST" id="contactForm">
+                        <form class="row login_form" action="{{ route('register') }}" method="POST" id="contactForm" enctype="multipart/form-data">
                             <div class="col-lg-6 col-md-6">
-                                    <img class="img-fluid w-100" src="img/users/default.png" alt="">
                             </div>
-                            <input id="profile_pic" name="profile_pic" type="file">
                             {{ csrf_field() }}
-							<div class="col-md-12 form-group">
+                            <div class="col-md-12 form-group">
+                                <h5>Profile Pic</h5><input name="dp" type="file">
 								<input type="text" class="form-control" id="name" name="name" placeholder = 'Name' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'"required>
                             </div>
                             <div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="email" name="email" placeholder = 'Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"required>
                             </div>
+                            <div class="col-md-12 form-group">
+								<input type="tel" class="form-control" id="phone" name="phone"  placeholder = 'Phone Number' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="address" name="address" placeholder = 'Address' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'"required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="city" name="city" placeholder = 'City' onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'"required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="state" name="state" placeholder = 'State' onfocus="this.placeholder = ''" onblur="this.placeholder = 'State'"required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="pin_code" name="pin_code" placeholder = 'Pin Code' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pin Code'"required>
+                            </div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
                             </div>
                             <div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password-confirm" name="password_confirmation"  placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required>
 							</div>
-                            <div class="col-md-12 form-group">
-								<input type="tel" class="form-control" id="name" name="number"  placeholder = 'Phone Number' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required>
-                            </div>
+
 							<div class="col-md-12 form-group">
-								<button type="submit" class="primary-btn">Log In</button>
+								<button type="submit" class="primary-btn">Sign up</button>
 							</div>
 						</form>
 					</div>

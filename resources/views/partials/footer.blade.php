@@ -11,6 +11,11 @@
             </div>
             <div class="col-lg-4  col-md-6 col-sm-6">
                 <div class="single-footer-widget">
+                    @if (session()->has('subscribe_message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('subscribe_message') }}
+                        </div>
+                    @endif
                     <h6>Newsletter</h6>
                     <p>Stay update with our latest</p>
                     <div class="" id="mc_embed_signup">
@@ -24,27 +29,12 @@
                             <a class="click-btn btn btn-default" href="#" onclick="document.getElementById('subscribe').submit()"><span class="lnr lnr-arrow-right"></span></a>
                             <div class="info"></div>
                         </form>
-                        @if (session()->has('success_message'))
-                        <script>
-                        document.getElementById("subemail").focus();
-                        </script>
-                                <div class="alert alert-success">
-                                    {{ session()->get('success_message') }}
-                                </div>
-                            @endif
-
-                            @if(count($errors) > 0)
+                        @if (session()->has('subscribe_message'))
                             <script>
-                            document.getElementById("subemail").focus();
+                                document.getElementById("subemail").focus();
                             </script>
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                            
+                        @endif
                     </div>
                 </div>
             </div>
@@ -56,7 +46,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-envelope"></i></a>
+                        <a href="mailto:vegifruit@gmail.com"><i class="fa fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
