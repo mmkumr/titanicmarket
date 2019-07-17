@@ -35,34 +35,39 @@
                                 <div class="col-md-6 form-group p_star">
                                     <input type="tel" class="form-control" id="phone" name="phone" value="{{$phone}}" placeholder = "Pin Code" required>
                                 </div>
-                                <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name_on_card" name="name_on_card" placeholder = "Name on the Card">
-                                </div>
                             </form>
-                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit()">Complete Order</a>
                     </div>
                     <div class="col-lg-4">
                         <div class="order_box">
                             <h2>Your Order</h2>
                             <ul class="list">
-                                <li><a href="#">Product <span>Total</span></a></li>
-                                <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                                <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                                <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                                <li>
+                                    <a href="#">Product <span>Total</span></a>
+                                </li>
+                                @foreach (Cart::content() as $item)
+                                <li>
+                                    <img src="{{ productImage($item->model->image) }}" alt="item" class="checkout-table-img">
+                                    <a href="#">{{ $item->model->name }}<span class="middle">x {{ $item->qty }}</span> <span class="last">{{ $item->model->presentPrice() }}</span></a>
+                                </li>
+                                @endforeach
                             </ul>
                             <ul class="list list_2">
-                                <li><a href="#">Subtotal <span>$2160.00</span></a></li>
-                                <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                                <li><a href="#">Total <span>$2210.00</span></a></li>
+                                @if (session()->has('coupon'))
+                                    <li><a href="#">Coupon code <span>{{ session()->get('coupon')['name'] }}</span></a></li>
+                                @endif
+                                <li><a href="#">Subtotal <span>{{ presentPrice(Cart::subtotal()) }}</span></a></li>
+                                @if (session()->has('coupon'))
+                                    <li><a href="#">Discount <span>-{{ presentPrice($discount) }} </span></a></li>
+                                @endif
+                                <li><a href="#">Tax <span>{{ presentPrice($newTax) }}</span></a></li>
+                                <li><a href="#">Total <span>{{ presentPrice($newTotal) }}</span></a></li>
                             </ul>
                             <div class="payment_item">
                                 <div class="radion_btn">
                                     <input type="radio" id="f-option5" name="selector">
-                                    <label for="f-option5">Check payments</label>
+                                    <label for="f-option5">Cash on Delivery</label>
                                     <div class="check"></div>
                                 </div>
-                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                                    Store Postcode.</p>
                             </div>
                             <div class="payment_item active">
                                 <div class="radion_btn">
@@ -71,15 +76,25 @@
                                     <img src="img/product/card.jpg" alt="">
                                     <div class="check"></div>
                                 </div>
+                                @if ($paypalToken)
+                                    <div class="mt-32">
+                                        <form method="post" id="paypal-payment-form" action="{{ route('checkout.paypal') }}">
+                                            @csrf
+                                            <section>
+                                                <div class="bt-drop-in-wrapper">
+                                                    <div id="bt-dropin"></div>
+                                                </div>
+                                            </section>
+
+                                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                                        </form>
+                                    </div>
+                                @endif
+
                                 <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
                                     account.</p>
                             </div>
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option4" name="selector">
-                                <label for="f-option4">I’ve read and accept the </label>
-                                <a href="#">terms & conditions*</a>
-                            </div>
-                            <a class="primary-btn" href="#">Proceed to Paypal</a>
+                            <a class="primary-btn" href="#" onclick="document.getElementById('paypal-payment-form').submit()">Proceed to Paypal</a>
                         </div>
                     </div>
                 </div>

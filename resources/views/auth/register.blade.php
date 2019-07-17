@@ -56,7 +56,7 @@
 								<input type="text" class="form-control" id="state" name="state" placeholder = 'State' onfocus="this.placeholder = ''" onblur="this.placeholder = 'State'"required>
                             </div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="pin_code" name="pin_code" placeholder = 'Pin Code' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pin Code'"required>
+								<input type="number" class="form-control" id="pin_code" name="pin_code" placeholder = 'Pin Code' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pin Code'"required>
                             </div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>

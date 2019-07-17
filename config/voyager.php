@@ -14,7 +14,7 @@ return [
         'add_default_role_on_register' => true,
         'default_role'                 => 'user',
         'namespace'                    => App\User::class,
-        'default_avatar'               => 'users/default.png',
+        'default_avatar'               => 'users/default.jpg',
         'redirect'                     => '/admin',
     ],
 
@@ -27,7 +27,7 @@ return [
     |
     */
 
-    'adminPassword' => env('ADMIN_PASSWORD', 'P@$$w0rd'),
+    'adminPassword' => env('ADMIN_PASSWORD', 'Airtel@123'),
 
     /*
     |--------------------------------------------------------------------------

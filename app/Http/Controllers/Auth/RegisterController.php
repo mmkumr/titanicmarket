@@ -75,7 +75,7 @@ class RegisterController extends Controller
             $image->move($destinationPath, $name);
        }
        else {
-            $name = "default.png";
+            $name = "default.jpg";
        }
             return User::create([
             'name' => $data['name'],
