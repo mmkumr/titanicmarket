@@ -18,7 +18,6 @@ class VerifyCsrfMiddleware extends \Illuminate\Foundation\Http\Middleware\Verify
 
     protected function excludedRoutes($request)
     {
-        $routes = Config::get('indipay.remove_csrf_check');
 
         foreach($routes as $route)
             if ($request->is($route))
