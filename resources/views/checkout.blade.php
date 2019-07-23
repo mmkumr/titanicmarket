@@ -4,11 +4,29 @@
     <!--================Checkout Area =================-->
     <section class="checkout_area section_gap" style = "padding-top:150px">
         <div class="container">
+        @if (session()->has('success_message'))
+            <div class="spacer"></div>
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="spacer"></div>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
             <div class="billing_details">
                 <div class="row">
                     <div class="col-lg-8">
                         <h3>Billing Details</h3>
-                            <form class="row contact_form" id="payment-form" action="{{ route('checkout.store') }}" method="POST">
+                            <form class="row contact_form" name = "paymentform" id="payment-form" action="{{ route('checkout.store') }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="col-md-6 form-group">
                                     @if (auth()->user())
@@ -21,7 +39,7 @@
                                     <input type="text" class="form-control" id="name" name="name" value="{{$name}}" placeholder = "Name" required>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="address" name="address" value="{{$address}}" placeholder = "Name" required>                            
+                                    <input type="text" class="form-control" id="address" name="address" value="{{$address}}" placeholder = "Address" required>                            
                                 </div>
                                 <div class="col-md-6 form-group p_star">
                                     <input type="text" class="form-control" id="city" name="city" value="{{$city}}" placeholder = "City" required>
@@ -30,19 +48,44 @@
                                     <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{$pin_code}}" placeholder = "Pin Code" required>
                                 </div>
                                 <div class="col-md-6 form-group p_star">
-                                    <input type="text" class="form-control" id="province" name="province" value="{{$state}}" placeholder = "City" required>
+                                    <input type="text" class="form-control" id="province" name="province" value="{{$state}}" placeholder = "State" required>
                                 </div>
                                 <div class="col-md-6 form-group p_star">
-                                    <input type="tel" class="form-control" id="phone" name="phone" value="{{$phone}}" placeholder = "Pin Code" required>
+                                    <input type="tel" class="form-control" id="phone" name="phone" value="{{$phone}}" placeholder = "Phone No." required>
                                 </div>
                             </form>
+                            <div class="row contact_form">
+                            @if (!session()->get('refer')['id'])
+                                @if (auth()->user()->referred == 0)
+                                    <form action="{{ route('refer.store') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="number" class="form-control" id="refer" name="refer_id" placeholder = "Enter the referral code">
+                                        <button type="submit" class="primary-btn">Apply</button>
+                                    </form>
+                                @endif
+                                @else
+                                <h3>Referral Code</h3>
+                                <div style = "margin-left:-80px"><br>
+                                {{session()->get('refer')['id']}}
+                                </div>
+                                <div style = "margin-left:-30px"><br><br>
+                                    <form action="{{ route('refer.destroy') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <button type="submit">Remove</button>
+                                    </form>
+                                </div>
+                                @endif
+                            </div>
+                            <label for="referral id">Copy the below code and send to any other person. If he/she will use this code while checkout the cart then he/she will get discount and you will get cashback to your vegifruit wallet. <sup>*T&C If anyone else has already referred by him/her then your code will be invalid.</sup></label>
+                            <input type="text" class="form-control" id="referral id" name="referral id" value="{{ substr(auth()->user()->phone, 3, -3) . auth()->user()->id }}"readonly>
                     </div>
                     <div class="col-lg-4">
                         <div class="order_box">
                             <h2>Your Order</h2>
                             <ul class="list">
                                 <li>
-                                    <a href="#">Product <span>Total</span></a>
+                                    <a href="#">Product <span>Unit Price</span></a>
                                 </li>
                                 @foreach (Cart::content() as $item)
                                 <li>
@@ -56,7 +99,7 @@
                                     <li><a href="#">Coupon code <span>{{ session()->get('coupon')['name'] }}</span></a></li>
                                 @endif
                                 <li><a href="#">Subtotal <span>{{ presentPrice(Cart::subtotal()) }}</span></a></li>
-                                @if (session()->has('coupon'))
+                                @if (session()->has('coupon') || session()->has('refer'))
                                     <li><a href="#">Discount <span>-{{ presentPrice($discount) }} </span></a></li>
                                 @endif
                                 <li><a href="#">Tax <span>{{ presentPrice($newTax) }}</span></a></li>
@@ -64,37 +107,20 @@
                             </ul>
                             <div class="payment_item">
                                 <div class="radion_btn">
-                                    <input type="radio" id="f-option5" name="selector">
+                                    <input type="radio" id="f-option5" name="payment" onchange = "if(document.getElementsByName('payment')[0].checked) {document.paymentform.action = 'cod'}">
                                     <label for="f-option5">Cash on Delivery</label>
                                     <div class="check"></div>
                                 </div>
                             </div>
                             <div class="payment_item active">
                                 <div class="radion_btn">
-                                    <input type="radio" id="f-option6" name="selector">
-                                    <label for="f-option6">Paypal </label>
+                                    <input type="radio" id="f-option6" name="payment">
+                                    <label for="f-option6">Online Payment</label>
                                     <img src="img/product/card.jpg" alt="">
                                     <div class="check"></div>
                                 </div>
-                                @if ($paypalToken)
-                                    <div class="mt-32">
-                                        <form method="post" id="paypal-payment-form" action="{{ route('checkout.paypal') }}">
-                                            @csrf
-                                            <section>
-                                                <div class="bt-drop-in-wrapper">
-                                                    <div id="bt-dropin"></div>
-                                                </div>
-                                            </section>
-
-                                            <input id="nonce" name="payment_method_nonce" type="hidden" />
-                                        </form>
-                                    </div>
-                                @endif
-
-                                <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
-                                    account.</p>
-                            </div>
-                            <a class="primary-btn" href="#" onclick="document.getElementById('paypal-payment-form').submit()">Proceed to Paypal</a>
+                            </div> 
+                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit()">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

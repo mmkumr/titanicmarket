@@ -23,8 +23,11 @@ class CreateUsersTable extends Migration
             $table->string('state')->nullable();
             $table->unsignedInteger('pin_code')->nullable();
             $table->string('password');
+            $table->unsignedInteger('wallet')->nullable()->default(0);
+            $table->boolean('referred')->default(false);
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

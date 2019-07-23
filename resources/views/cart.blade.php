@@ -113,6 +113,7 @@
 
                                 </td>
                                 <td>
+                                    @if (!session()->has('coupon'))
                                     <div class="cupon_text d-flex align-items-center" align = right>
                                         <form action="{{ route('coupon.store') }}" method="POST">
                                             {{ csrf_field() }}
@@ -120,6 +121,7 @@
                                             <button type="submit" class="primary-btn">Apply</button>
                                         </form>
                                     </div>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>

@@ -1,4 +1,7 @@
 <?php
+
+Route::post('/refer', 'ReferController@store')->name('refer.store');
+Route::delete('/refer', 'ReferController@destroy')->name('refer.destroy');
 Route::post('/subscribe', 'Subscribe@store')->name('subscribe');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', ['as'=>'contact.store','uses'=>'ContactController@store']);
@@ -19,7 +22,7 @@ Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
 Route::delete('/coupon', 'CouponsController@destroy')->name('coupon.destroy');
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
-Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+Route::post('/cod', 'CheckoutController@cod')->name('checkout.store');
 Route::post('/paypal-checkout', 'CheckoutController@paypalCheckout')->name('checkout.paypal');
 
 Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.index');

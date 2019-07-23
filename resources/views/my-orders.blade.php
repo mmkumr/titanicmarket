@@ -2,102 +2,89 @@
 
 @section('title', 'My Orders')
 
-@section('extra-css')
-    <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
-@endsection
-
 @section('content')
-
-    @component('components.breadcrumbs')
-        <a href="/">Home</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>My Orders</span>
-    @endcomponent
-
-    <div class="container">
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-
-        @if(count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </div>
-
-    <div class="products-section my-orders container">
-        <div class="sidebar">
-
-            <ul>
-              <li><a href="{{ route('users.edit') }}">My Profile</a></li>
-              <li class="active"><a href="{{ route('orders.index') }}">My Orders</a></li>
-            </ul>
-        </div> <!-- end sidebar -->
-        <div class="my-profile">
-            <div class="products-header">
-                <h1 class="stylish-heading">My Orders</h1>
-            </div>
-
-            <div>
-                @foreach ($orders as $order)
-                <div class="order-container">
-                    <div class="order-header">
-                        <div class="order-header-items">
-                            <div>
-                                <div class="uppercase font-bold">Order Placed</div>
-                                <div>{{ presentDate($order->created_at) }}</div>
-                            </div>
-                            <div>
-                                <div class="uppercase font-bold">Order ID</div>
-                                <div>{{ $order->id }}</div>
-                            </div><div>
-                                <div class="uppercase font-bold">Total</div>
-                                <div>{{ presentPrice($order->billing_total) }}</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="order-header-items">
-                                <div><a href="{{ route('orders.show', $order->id) }}">Order Details</a></div>
-                                <div>|</div>
-                                <div><a href="#">Invoice</a></div>
-                            </div>
-                        </div>
+	<!--================Order Details Area =================-->
+	<section class="order_details section_gap" style = "padding-top:150px">
+        <div class="container">
+            <div class="container">
+                @if (session()->has('success_message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success_message') }}
                     </div>
-                    <div class="order-products">
-                        @foreach ($order->products as $product)
-                            <div class="order-product-item">
-                                <div><img src="{{ asset($product->image) }}" alt="Product Image"></div>
-                                <div>
-                                    <div>
-                                        <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
-                                    </div>
-                                    <div>{{ presentPrice($product->price) }}</div>
-                                    <div>Quantity: {{ $product->pivot->quantity }}</div>
-                                </div>
-                            </div>
-                        @endforeach
+                @endif
 
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                </div> <!-- end order-container -->
-                @endforeach
+                @endif
             </div>
-
-            <div class="spacer"></div>
+            @foreach ($orders as $order)
+            <div class="row order_d_inner" style = "padding-top:50px">
+				<div class="col-lg-6">
+					<div class="details_item">
+						<h4>Order Info</h4>
+						<ul class="list">
+							<li><span>Order number:</span> {{ $order->id }}</li>
+							<li><span>Date:</span> {{ presentDate($order->created_at) }}</li>
+                            <li><span>Total:</span> {{ presentPrice($order->billing_total) }}</li>
+                            <li><span>Discount:</span> {{ presentPrice($order->billing_discount) }}</li>
+                            <li><span>Payment method:</span> {{ $order->payment_gateway }}</li>
+                            @if ($order->shipped == 1)
+                                <li><span>Shipped:</span> Yes</li>
+                            @else
+                                <li><span>Shipped:</span> No</li>
+                            @endif
+                        </ul>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="details_item">
+						<h4>Shipping Address</h4>
+						<ul class="list">
+							<li><span>Street:</span> {{$order->billing_address}}</li>
+							<li><span>City:</span> {{$order->billing_city}}</li>
+							<li><span>State:</span> {{$order->billing_province}}</li>
+							<li><span>PIN Code:</span> {{$order->billing_postalcode}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="order_details_table">
+				<h2>Order Details</h2>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Product</th>
+								<th scope="col">Quantity</th>
+								<th scope="col">Total</th>
+							</tr>
+						</thead>
+                        <tbody>
+                            @foreach ($order->products as $product)
+							<tr>
+								<td>
+									<p><a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a></p>
+								</td>
+								<td>
+									<h5>x {{ $product->pivot->quantity }}</h5>
+								</td>
+								<td>
+									<p>{{ presentPrice($product->price * $product->pivot->quantity) }}</p>
+								</td>
+                            </tr>
+                            @endforeach 
+						</tbody>
+                    </table>
+                </div>
+            </div>
+        @endforeach
         </div>
-    </div>
-
-@endsection
-
-@section('extra-js')
-    <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+	</section>
+	<!--================End Order Details Area =================-->
 @endsection

@@ -73,7 +73,7 @@
 							<img src="img/features/f-icon4.png" alt="">
 						</div>
 						<h6>Secure Payment</h6>
-						<p>We use ssl cerified encription for your safety.</p>
+						<p>Our website is encrypted for our security.</p>
 					</div>
 				</div>
 			</div>
@@ -89,7 +89,8 @@
 				<div class="col-lg-12 col-md-12">
                     <div class="row">
                     @foreach ($categories as $category)
-                        @php ($i = $i + 1)
+                    @php ($i = $i + 1)
+					<a href="{{ route('shop.index', ['category' => $category->slug]) }}">
 						<div class="col-lg-{{$col[$i]}} col-md-{{$col[$i]}}">
 							<div class="single-deal">
                                 <div class="overlay"></div>
@@ -99,12 +100,11 @@
                                 @if ($col[$i] == 8)
 								    <img src="img/category/{{$category->name}}.jpg" alt="" width="730px" height="295px">
                                 @endif
-								    <a href="img/category/c1.jpg" class="img-pop-up" target="_blank">
 									<div class="deal-details">
 										<h6 class="deal-title">{{$category->name}}</h6>
 									</div>
-								</a>
-							</div>
+                            </div>
+						</a>
                         </div>
                         @endforeach 
 					</div>

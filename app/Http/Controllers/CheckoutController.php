@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\User;
 use App\Product;
 use App\OrderProduct;
 use App\Mail\OrderPlaced;
@@ -86,7 +87,7 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CheckoutRequest $request)
+    public function cod(CheckoutRequest $request)
     {
         // Check race condition when there are less items available to purchase
         if ($this->productsAreNoLongerAvailable()) {
@@ -98,31 +99,36 @@ class CheckoutController extends Controller
         })->values()->toJson();
 
         try {
-            $charge = Stripe::charges()->create([
-                'amount' => getNumbers()->get('newTotal') / 100,
-                'currency' => 'INR',
-                'source' => $request->stripeToken,
-                'description' => 'Order',
-                'receipt_email' => $request->email,
-                'metadata' => [
-                    'contents' => $contents,
-                    'quantity' => Cart::instance('default')->count(),
-                    'discount' => collect(session()->get('coupon'))->toJson(),
-                ],
-            ]);
+//           $charge = Stripe::charges()->create([
+//               'amount' => getNumbers()->get('newTotal') / 100,
+//               'currency' => 'INR',
+//               'source' => $request->stripeToken,
+//               'description' => 'Order',
+//               'receipt_email' => $request->email,
+//               'metadata' => [
+//                   'contents' => $contents,
+//                   'quantity' => Cart::instance('default')->count(),
+//                   'discount' => collect(session()->get('coupon'))->toJson(),
+//               ],
+//           ]);
 
-            $order = $this->addToOrdersTables($request, null);
+            $order = $this->addToOrdersTablesCOD($request, null);
+
             Mail::send(new OrderPlaced($order));
-
             // decrease the quantities of all the products in the cart
             $this->decreaseQuantities();
-
+            if(User::where('id', substr(session()->get('refer')['id'], 4))->first()) {
+                $user = User::where('id', substr(session()->get('refer')['id'], 4))->first();
+                $user->wallet += 50;
+                $user->save();
+            }
             Cart::instance('default')->destroy();
             session()->forget('coupon');
+            session()->forget('refer');
 
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
-            $this->addToOrdersTables($request, $e->getMessage());
+            $this->addToOrdersTablesCOD($request, $e->getMessage());
             return back()->withErrors('Error! ' . $e->getMessage());
         }
     }
@@ -186,7 +192,7 @@ class CheckoutController extends Controller
         }
     }
 
-    protected function addToOrdersTables($request, $error)
+    protected function addToOrdersTablesCOD($request, $error)
     {
         // Insert into orders table
         $order = Order::create([
@@ -204,6 +210,7 @@ class CheckoutController extends Controller
             'billing_subtotal' => getNumbers()->get('newSubtotal'),
             'billing_tax' => getNumbers()->get('newTax'),
             'billing_total' => getNumbers()->get('newTotal'),
+            'payment_gateway' => 'Cash On delivery',
             'error' => $error,
         ]);
 
