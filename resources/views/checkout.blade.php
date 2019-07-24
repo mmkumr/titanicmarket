@@ -85,12 +85,12 @@
                             <h2>Your Order</h2>
                             <ul class="list">
                                 <li>
-                                    <a href="#">Product <span>Unit Price</span></a>
+                                    <a href="#">Product <span>Total</span></a>
                                 </li>
                                 @foreach (Cart::content() as $item)
                                 <li>
                                     <img src="{{ productImage($item->model->image) }}" alt="item" class="checkout-table-img">
-                                    <a href="#">{{ $item->model->name }}<span class="middle">x {{ $item->qty }}</span> <span class="last">{{ $item->model->presentPrice() }}</span></a>
+                                    <a href="#">{{ $item->model->name }}<span class="middle">x {{ $item->qty }}</span> <span class="last">₹{{ trim($item->model->presentPrice(),'₹') * $item->qty }}</span></a>
                                 </li>
                                 @endforeach
                             </ul>
@@ -99,22 +99,46 @@
                                     <li><a href="#">Coupon code <span>{{ session()->get('coupon')['name'] }}</span></a></li>
                                 @endif
                                 <li><a href="#">Subtotal <span>{{ presentPrice(Cart::subtotal()) }}</span></a></li>
-                                @if (session()->has('coupon') || session()->has('refer'))
+                                @if ($discount != 0)
                                     <li><a href="#">Discount <span>-{{ presentPrice($discount) }} </span></a></li>
                                 @endif
                                 <li><a href="#">Tax <span>{{ presentPrice($newTax) }}</span></a></li>
                                 <li><a href="#">Total <span>{{ presentPrice($newTotal) }}</span></a></li>
                             </ul>
+                            <div class="row contact_form">
+                            @if (!session()->get('wallet')['value'])
+                                @if (auth()->user()->wallet != 0)
+                                    <form action="{{ route('wallet.store') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <h5>Use wallet money:  ₹{{ auth()->user()->wallet }}</h5>
+                                        <button type="submit" class="primary-btn">Use it</button>
+                                    </form>
+                                @endif
+                                @else
+                                <h3>Referral Code</h3>
+                                <div style = "margin-left:-80px"><br>
+                                </div>
+                                <div style = "margin-left:-30px"><br><br>
+                                    <form action="{{ route('wallet.destroy') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <h5>Using wallet money:  ₹{{ auth()->user()->wallet }}
+                                        {{ method_field('delete') }}
+                                        <button type="submit" class="primary-btn">Don't Use</button>
+                                    </form>
+                                </div>
+                                @endif
+                            </div>
+
                             <div class="payment_item">
                                 <div class="radion_btn">
-                                    <input type="radio" id="f-option5" name="payment" onchange = "if(document.getElementsByName('payment')[0].checked) {document.paymentform.action = 'cod'}">
+                                    <input type="radio" id="f-option5" name="payment" onchange = "if(document.getElementsByName('payment')[0].checked) {document.paymentform.action = 'cod'}"checked>
                                     <label for="f-option5">Cash on Delivery</label>
                                     <div class="check"></div>
                                 </div>
                             </div>
                             <div class="payment_item active">
                                 <div class="radion_btn">
-                                    <input type="radio" id="f-option6" name="payment">
+                                    <input type="radio" id="f-option6" name="payment" onchange = "if(document.getElementsByName('payment')[1].checked) {document.paymentform.action = 'online'}">
                                     <label for="f-option6">Online Payment</label>
                                     <img src="img/product/card.jpg" alt="">
                                     <div class="check"></div>

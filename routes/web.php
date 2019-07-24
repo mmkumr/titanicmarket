@@ -2,6 +2,8 @@
 
 Route::post('/refer', 'ReferController@store')->name('refer.store');
 Route::delete('/refer', 'ReferController@destroy')->name('refer.destroy');
+Route::post('/wallet', 'WalletController@store')->name('wallet.store');
+Route::delete('/wallet', 'WalletController@destroy')->name('wallet.destroy');
 Route::post('/subscribe', 'Subscribe@store')->name('subscribe');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', ['as'=>'contact.store','uses'=>'ContactController@store']);

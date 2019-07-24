@@ -36,17 +36,7 @@
 		<div class="container">
 			<div class="row features-inner">
 				<!-- single features -->
-				<div class="col-lg-3 col-md-4 col-sm-4">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="img/features/f-icon1.png" alt="">
-						</div>
-						<h6>Free Delivery</h6>
-						<p>Free Shipping on orders above 500Rs</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-4 col-sm-4">
+				<div class="col-lg-5 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
 							<img src="img/features/f-icon3.png" alt=""height = 50px>

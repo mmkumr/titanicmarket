@@ -122,9 +122,14 @@ class CheckoutController extends Controller
                 $user->wallet += 50;
                 $user->save();
             }
+            if(session()->get('wallet')['value']) {
+                auth()->user()->wallet = 0;
+                auth()->user()->save();
+            }
             Cart::instance('default')->destroy();
             session()->forget('coupon');
             session()->forget('refer');
+            session()->forget('wallet');
 
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {

@@ -2,7 +2,7 @@
 ============================================================================================ */
 .banner-area {
 	background: url(http://localhost:8000/img/banner/banner-bg.jpg) center no-repeat;
-	background-size: cover;
+	background-size: contain;
 	position: relative;
 	.fullscreen {
 		@media (max-width: 768px) {
