@@ -9,7 +9,7 @@
             <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             </div>
         </div>
-        <img class="author_img rounded-circle" src="{{asset('img/users/' . $user->dp)}}" alt="" style="display: block;margin-left: auto;margin-right: auto;height:200px;">
+        <img class="author_img rounded-circle" src="{{usersImage($user->dp)}}" alt="" style="display: block;margin-left: auto;margin-right: auto;height:200px;">
     </section>
     <!-- End Banner Area -->
 

@@ -13,7 +13,7 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         // Laptops
-        for ($i=1; $i <= 30; $i++) {
+        for ($i=1; $i <= 10; $i++) {
             Product::create([
                 'name' => 'Laptop '.$i,
                 'slug' => 'laptop-'.$i,
@@ -25,6 +25,6 @@ class ProductsTableSeeder extends Seeder
             ])->categories()->attach(1);
         }
         // Select random entries to be featured
-        Product::whereIn('id', [1, 12, 22, 31, 41, 43, 47, 51, 53,61, 69, 73, 80])->update(['featured' => true]);
+        Product::whereIn('id', [1, 12, 9, 4, 7])->update(['featured' => true]);
     }
 }

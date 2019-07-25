@@ -71,17 +71,17 @@ class RegisterController extends Controller
        if(request()->file('dp')) {
             $image = request()->file('dp');
             $name = request()->email.'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('img/users');
+            $destinationPath = base_path().'/storage/app/public/users';
             $image->move($destinationPath, $name);
        }
        else {
-            $name = "default.jpg";
+            $name = "users/default.jpg";
        }
             return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'dp' => $name,
+            'dp' => 'users/'.$name,
             'phone' => $data['phone'],
             'address' => $data['address'],
             'city' => $data['city'],

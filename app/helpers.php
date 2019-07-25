@@ -22,6 +22,10 @@ function productImage($path)
     return $path && file_exists('storage/'.$path) ? asset('storage/'.$path) : asset('img/not-found.jpg');
 }
 
+function usersImage($path)
+{
+    return $path && file_exists('storage/'.$path) ? asset('storage/'.$path) : asset('img/not-found.jpg');
+}
 function getNumbers()
 {
     $tax = config('cart.tax') / 100;

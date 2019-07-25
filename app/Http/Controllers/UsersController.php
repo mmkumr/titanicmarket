@@ -82,9 +82,9 @@ class UsersController extends Controller
         if ($request->hasFile('dp')) {
             $image = request()->file('dp');
             $name = request()->email.'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('img/users');
+            $destinationPath = basepath().'storage/app/public/users';
             $image->move($destinationPath, $name);
-            $user->dp = $name;
+            $user->dp = 'users/'.$name;
         }
         if (! $request->filled('password')) {
             $user->fill($input)->save();
