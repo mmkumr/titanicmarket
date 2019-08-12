@@ -85,10 +85,10 @@
 							<div class="single-deal">
                                 <div class="overlay"></div>
                                 @if ($col[$i] == 4)
-								    <img  src="img/category/{{$category->name}}.jpg" alt="" width="350px" height="295px">
+								    <img  src="img/category/{{$category->slug}}.jpg" alt="" width="350px" height="295px">
                                 @endif
                                 @if ($col[$i] == 8)
-								    <img src="img/category/{{$category->name}}.jpg" alt="" width="730px" height="295px">
+								    <img src="img/category/{{$category->slug}}.jpg" alt="" width="730px" height="295px">
                                 @endif
 									<div class="deal-details">
 										<h6 class="deal-title">{{$category->name}}</h6>
@@ -123,7 +123,7 @@
 					<div class="col-lg-3 col-md-6">
                         <div class="single-product">
                             <a href="{{ route('shop.show', $product->slug) }}">
-                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt="">
+                                <img  src="{{ productImage($product->image) }}" alt="" width="200px" height="200px">
                             </a>
                             <div class="product-details">
                                 <a href="{{ route('shop.show', $product->slug) }}">

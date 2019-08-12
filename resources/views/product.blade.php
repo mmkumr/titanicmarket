@@ -26,12 +26,12 @@
                 @endif
                     <div class="s_Product_carousel">
                         <div class="single-prd-item">
-                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt="">
+                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt=""style = "height: 500px">
                         </div>
                         @if ($product->images)
                             @foreach (json_decode($product->images, true) as $image)
                             <div class="single-prd-item">
-                                <img class="img-fluid" src="{{ productImage($image) }}" alt="">
+                                <img class="img-fluid" src="{{ productImage($image) }}" alt=""style = "height: 500px">
                             </div>
                         @endforeach
                     @endif
@@ -78,7 +78,7 @@
                     @foreach ($mightAlsoLike as $product)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt=""></a>
+								<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt=""width="100px" height="100px"></a>
 								<div class="desc">
 									<a href="{{ route('shop.show', $product->slug) }}" class="title">{{ $product->name }}</a>
 									<div class="price">
