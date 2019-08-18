@@ -47,7 +47,7 @@
 				</div>
 				<!-- End Filter Bar -->
                 <!-- Start Best Seller -->
-				<section class="lattest-product-area pb-40 category-list">
+                <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
                     @php ($i = 0)
                     @foreach ($products as $product)

@@ -51,8 +51,10 @@
                             {{ csrf_field() }}
                         </form>
                             <a class="primary-btn" href="#" onclick="document.getElementById('cart').submit()">Add to Cart</a>
-                        @endif
-						</div>
+                            @endif
+                        </div>
+                        <label for="referral id">Copy the below text and send us as message to our official phone no. 8337908779. We will call you as soon as possible.</label>
+                        <input type="text" class="form-control" id="referral id" name="referral id" value="Queries related to product which has product id '{{ $product->id }}'"readonly>
 					</div>
 				</div>
 			</div>
@@ -64,7 +66,7 @@
 	<section class="product_description_area">
 		<div class="container">
 		    <h1>Description</h1>	
-                    <p>{{$product->description}}</p>
+            <p>{{$product->description}}</p>
         </div>
 	</section>
     <!--================End Product Description Area =================-->
