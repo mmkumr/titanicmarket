@@ -173,7 +173,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<a href="{{ route('shop.show', $product->slug) }}">
-                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt="">
+                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt="" width="200px" height="200px">
                             </a>
                             <div class="product-details">
                                 <a href="{{ route('shop.show', $product->slug) }}">
@@ -207,7 +207,8 @@
 	</section>
 	<!-- end product Area -->
 
-	<!-- Start related-product Area -->
+    <!-- Start related-product Area -->
+    @if ($products->count())
 	<section class="related-product-area section_gap_bottom" >
 		<div class="container">
 			<div class="row justify-content-center">
@@ -223,9 +224,9 @@
                         @foreach ($products as $product)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
-								<a href="#"><img src="{{ productImage($product->image) }}" alt=""></a>
+								<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="" width="100px" height="100px"></a>
 								<div class="desc">
-									<a href="#" class="title">{{$product->name}}</a>
+									<a href="{{ route('shop.show', $product->slug) }}" class="title">{{$product->name}}</a>
 									<div class="price">
 										<h6>{{ $product->presentPrice() }}</h6>
 									</div>
@@ -237,6 +238,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+    </section>
+    @endif
 	<!-- End related-product Area -->
 @endsection

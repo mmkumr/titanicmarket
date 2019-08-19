@@ -53,8 +53,11 @@
                     @foreach ($products as $product)
 						<!-- single product -->
 						<div class="col-lg-4 col-md-6">
-							<div class="single-product">
-								<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="" width="200px" height="200px"></a>
+                            <div class="single-product">
+                                <a href="{{ productImage($product->image) }}" class="img-pop-up" target="_blank">
+                                    <img src="{{ productImage($product->image) }}" alt="" width="200px" height="200px">
+								</a>
+								<!--<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="" width="200px" height="200px"></a> -->
 								<div class="product-details">
 									<a href="{{ route('shop.show', $product->slug) }}"><h6>{{ $product->name }}</h6></a>
 									<div class="price">

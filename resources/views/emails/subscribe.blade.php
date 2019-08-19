@@ -210,7 +210,7 @@ html, body {background-image: none !important; background-color: transparent !im
 <table cellpadding="0" cellspacing="0" border="0" width="137" height="50"  style="border:0px none;height:auto">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/logo.png?token=AEFF3UI52OHRYOLAVVYIDZS5EN5EM" width="137" height="50" alt="" border="0"  style="display:block" class="img137x50"  /></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/logo.png" width="137" height="50" alt="" border="0"  style="display:block" class="img137x50"  /></td>
 </tr>
 </table>
 </td>
@@ -316,7 +316,7 @@ style="padding: 0; margin: 0;">    We deliver fresh fruits, vegetables, dry frui
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="193" height="164"  style="border:0px none;height:auto" class="full-width">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Fruits.jpg?token=AEFF3UKU226XARWP2CYNC7K5EN5D6" width="193" height="164" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img193x164"  /></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Fruits.jpg" width="193" height="164" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img193x164"  /></td>
 </tr>
 </table>
 </td>
@@ -356,7 +356,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Dry_Fruits.jp
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="206" height="155"  style="border:0px none;height:auto" class="full-width">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/salty-snacks.jpg?token=AEFF3UNCJNFDTKMXXGDQSAK5EN5ES" width="206" height="155" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img206x155"  /></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/salty-snacks.jpg" width="206" height="155" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img206x155"  /></td>
 </tr>
 </table>
 </td>
@@ -423,7 +423,7 @@ href="https://www.vegifruit.in" target="_blank"  style="text-decoration:none;" c
 <table cellpadding="0" cellspacing="0" border="0" width="141" height="202"  style="border:0px none;height:auto">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/fav.png?token=AEFF3ULTC253O5GW6TVNJRK5EN5EE" width="141" height="202" alt="" border="0"  style="display:block" class="img141x202"  /></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/fav.png" width="141" height="202" alt="" border="0"  style="display:block" class="img141x202"  /></td>
 </tr>
 </table>
 </td>
@@ -456,7 +456,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/fav.png?token
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <td valign="top"  style="padding-top:10px;padding-right:10px;padding-bottom:20px;padding-left:10px"><div  style="text-align:left;font-family:Tahoma, Verdana, Segoe, sans-serif;font-size:15px;color:#000000;line-height:23px;mso-line-height:exactly;mso-text-raise:4px"><p style="padding: 0; margin: 0;text-align: center;"><strong>CONTACT INFO:</strong></p><p style="padding: 0; margin: 0;text-align: center;">&nbsp;</p><p style="padding: 0; margin: 0;"><strong>Address:</strong> Co-operative Colony lane 3rd, Berhampur, Odisha</p><p style="padding: 0; margin: 0;"><strong>Phone:</strong> +91 8337908779</p><p style="padding: 0; margin: 0;"><strong>E-mail:</strong> <a href="mailto:vegifruit@gmail.com" target="_blank" style="color: #000000 !important; text-decoration: underline !important;"><font
-style=" color:#000000;">vegifruit@gmail.com</font></a></p></div></td>
+style=" color:#000000;">vegifruitcare@gmail.com</font></a></p></div></td>
 </tr>
 </table>
 </td>
@@ -522,7 +522,7 @@ style=" color:#000000;">vegifruit@gmail.com</font></a></p></div></td>
 <tr>
 <td valign="top"  style="padding:0px"><a 
 href="https://www.facebook.com" target="_blank" class="imglink"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460562874_46-facebook_white.png?token=AEFF3UMGWP65KG6MHRYWV4C5EN5L2" width="48" height="48" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img48x48"  /></a></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460562874_46-facebook_white.png" width="48" height="48" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img48x48"  /></a></td>
 </tr>
 </table>
 </td>
@@ -544,7 +544,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460562874_46
 <tr>
 <td valign="top"  style="padding:0px"><a 
 href="https://www.twitter.com" target="_blank" class="imglink"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460562892_43-twitter_white.png?token=AEFF3UMDMMWSWYUVQ72JFOC5EN5DG" width="48" height="48" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img48x48"  /></a></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460562892_43-twitter_white.png" width="48" height="48" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img48x48"  /></a></td>
 </tr>
 </table>
 </td>
@@ -566,7 +566,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460562892_43
 <tr>
 <td valign="top"  style="padding:0px"><a 
 href="https://www.instagram.com" target="_blank" class="imglink"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460563170_78-instagram_white.png?token=AEFF3UIMQWCYAEHTEERFBEK5EN5LG" width="48" height="48" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img48x48"  /></a></td>
+src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/1460563170_78-instagram_white.png" width="48" height="48" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img48x48"  /></a></td>
 </tr>
 </table>
 </td>

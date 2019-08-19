@@ -89,7 +89,7 @@
                                 </li>
                                 @foreach (Cart::content() as $item)
                                 <li>
-                                    <img src="{{ productImage($item->model->image) }}" alt="item" class="checkout-table-img">
+                                    <img src="{{ productImage($item->model->image) }}" alt="item" width="100px" height="100px">
                                     <a href="#">{{ $item->model->name }}<span class="middle">x {{ $item->qty }}</span> <span class="last">₹{{ trim($item->model->presentPrice(),'₹') * $item->qty }}</span></a>
                                 </li>
                                 @endforeach

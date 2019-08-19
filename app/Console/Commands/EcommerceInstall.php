@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-
+use DB;
  class EcommerceInstall extends Command
  {
      /**
@@ -67,74 +67,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
          File::copyDirectory(public_path('img/posts'), public_path('storage/posts'));
         File::copyDirectory(public_path('img/users'), public_path('storage/users'));
 
-        try {
-            $this->call('migrate:fresh', [
-                '--seed' => true,
-                '--force' => true,
-            ]);
-        } catch (\Exception $e) {
-            $this->error('Algolia credentials incorrect. Your products table is NOT seeded correctly. If you are not using Algolia, remove Laravel\Scout\Searchable from App\Product');
-        }
-        $this->call('db:seed', [
-            '--class' => 'VoyagerDatabaseSeeder',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'VoyagerDummyDatabaseSeeder',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'DataTypesTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'DataRowsTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'MenusTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'MenuItemsTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'RolesTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'PermissionsTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'PermissionRoleTableSeeder',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'PermissionRoleTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'UsersTableSeederCustom',
-            '--force' => true,
-        ]);
- 
-        $this->call('db:seed', [
-            '--class' => 'SettingsTableSeederCustom',
-            '--force' => true,
-        ]);
-
+        
         try {
             $this->call('scout:clear', [
                 'model' => 'App\\Product',

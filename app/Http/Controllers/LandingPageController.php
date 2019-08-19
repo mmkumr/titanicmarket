@@ -17,7 +17,7 @@ class LandingPageController extends Controller
     public function index()
     {
         $products = Product::where('featured', true)->take(9)->inRandomOrder()->get();
-        $latest = Product::orderby('created_at', 'asc')->take(8)->get();
+        $latest = Product::orderby('created_at', 'desc')->take(8)->get();
         $special = Product::with('categories')->whereHas('categories', function ($query) {
             $query->where('slug', '=', 'namkeens')->orWhere('slug', '=', 'dry-fruits');
             })->take(8)->inRandomOrder()->get();

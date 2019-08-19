@@ -23,10 +23,7 @@ $(document).ready(function(){
     });
 
     $('.img-pop-up').magnificPopup({
-        type: 'image',
-        gallery:{
-        enabled:true
-        }
+        type: 'image' 
     });
 
     // Search Toggle
