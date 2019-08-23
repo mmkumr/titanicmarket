@@ -52,6 +52,20 @@ use DB;
      protected function proceed()
      {
         try {
+            $this->call('migrate:fresh', [
+                '--force' => true,
+            ]);
+        $process = new Process('./restoredb.sh');
+		$process->run();
+		if (!$process->isSuccessful()) {
+	    throw new ProcessFailedException($process);
+		}
+    	echo $process->getOutput();
+
+        } catch (\Exception $e) {
+            $this->error($e);
+        }
+        try {
             $this->call('scout:clear', [
                 'model' => 'App\\Product',
             ]);
