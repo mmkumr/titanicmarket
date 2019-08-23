@@ -24,17 +24,21 @@
                     </ul>
                 </div>
                 @endif
+                    @if ($product->images)
                     <div class="s_Product_carousel">
+                    @else
+                    <div>
+                    @endif
                         <div class="single-prd-item">
                                 <img class="img-fluid" src="{{ productImage($product->image) }}" alt=""style = "height: 500px">
                         </div>
                         @if ($product->images)
                             @foreach (json_decode($product->images, true) as $image)
-                            <div class="single-prd-item">
-                                <img class="img-fluid" src="{{ productImage($image) }}" alt=""style = "height: 500px">
-                            </div>
-                        @endforeach
-                    @endif
+                                <div class="single-prd-item">
+                                    <img class="img-fluid" src="{{ productImage($image) }}" alt=""style = "height: 500px">
+                                </div>
+                            @endforeach
+                        @endif
 					</div>
 				</div>
 				<div class="col-lg-5 offset-lg-1">

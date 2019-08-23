@@ -81,7 +81,9 @@
                         </div>
                         @php ($i = $i + 1)
                     @endforeach  
-				</section>
+                </section>
+                <div class="spacer"></div>
+                    {{ $products->appends(request()->input())->links() }}
 			</div>
 		</div>
 	</div>
