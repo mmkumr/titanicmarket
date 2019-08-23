@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <script src="{{ asset('js/algolia.js') }}"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
     <!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF3OlFHBtuyIec5x2Nc2RQlCO52nN5xcU"></script>
 	<script src="{{ asset('js/gmaps.min.js') }}"></script>

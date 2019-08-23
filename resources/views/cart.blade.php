@@ -240,7 +240,7 @@
                                     <div class="media">
                                         <div class="d-flex">
                                             <a href="{{ route('shop.show', $item->model->slug) }}">
-                                                <img src="{{ productImage($item->model->image) }}" alt="item">
+                                                <img src="{{ productImage($item->model->image) }}" alt="item"width="200px" height="200px">
                                             </a>
                                         </div>
                                         <div class="media-body">

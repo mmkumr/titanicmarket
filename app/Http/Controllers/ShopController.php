@@ -32,11 +32,11 @@ class ShopController extends Controller
         }
 
         if (request()->sort == 'low_high') {
-            $products = $products->orderBy('price')->get();
+            $products = $products->orderBy('price')->paginate($pagination);
         } elseif (request()->sort == 'high_low') {
-            $products = $products->orderBy('price', 'desc')->get();
+            $products = $products->orderBy('price', 'desc')->paginate($pagination);
         } else {
-            $products = $products->get();
+            $products = $products->paginate($pagination);
         }
 
         return view('category')->with([
