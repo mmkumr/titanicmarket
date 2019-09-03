@@ -36,7 +36,7 @@
 		<div class="container">
 			<div class="row features-inner">
 				<!-- single features -->
-				<div class="col-lg-5 col-md-6 col-sm-6">
+				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
 							<img src="img/features/f-icon3.png" alt=""height = 50px>
@@ -65,7 +65,17 @@
 						<h6>Secure Payment</h6>
 						<p>Our website is encrypted for our security.</p>
 					</div>
-				</div>
+                </div>
+                <!-- single features -->
+				<div class="col-lg-3 col-md-4 col-sm-4">
+					<div class="single-features">
+						<div class="f-icon">
+							<img src="img/features/f-icon6.png" alt=""height = 50px>
+						</div>
+						<h6>Carrier Charges</h6>
+						<p>Carrier charges are applied on every purchase.</p>
+					</div>
+                </div>
 			</div>
 		</div>
 	</section>
