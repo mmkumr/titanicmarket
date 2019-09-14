@@ -26,10 +26,10 @@ class CheckoutController extends Controller
         if (Cart::instance('default')->count() == 0) {
             return redirect()->route('shop.index');
         }
-
         if (auth()->user() && request()->is('guestCheckout')) {
             return redirect()->route('checkout.index');
         }
+
         if (request()->is('guestCheckout')) {
             $email = "";
             $name = "";
@@ -38,6 +38,7 @@ class CheckoutController extends Controller
             $pin_code = "";
             $state = "";
             $phone = "";
+            $referred = "";
         }
         else {
             $email = auth()->user()->email;
@@ -47,6 +48,7 @@ class CheckoutController extends Controller
             $pin_code = auth()->user()->pin_code;
             $state = auth()->user()->state;
             $phone = auth()->user()->phone;
+            $referred = auth()->user()->referred;
         }
 
 
@@ -76,7 +78,7 @@ class CheckoutController extends Controller
             'pin_code' => $pin_code,
             'state' => $state,
             'phone' => $phone,
-
+            'referred' => $referred,
         ]);
     }
 

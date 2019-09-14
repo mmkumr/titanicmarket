@@ -27,7 +27,7 @@ return [
     |
     */
 
-    'adminPassword' => env('ADMIN_PASSWORD', 'Airtel@123'),
+    'adminPassword' => env('ADMIN_PASSWORD', 'Te93#oroZ5If0TJu'),
 
     /*
     |--------------------------------------------------------------------------

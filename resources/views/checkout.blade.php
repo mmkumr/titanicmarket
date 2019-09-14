@@ -55,15 +55,15 @@
                                 </div>
                             </form>
                             <div class="row contact_form">
-                            @if (!session()->get('refer')['id'])
-                                @if (auth()->user()->referred == 0)
+                            @if (!session()->get('refer')['id'] && !request()->is('guestCheckout'))
+                                @if ($referred)
                                     <form action="{{ route('refer.store') }}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="number" class="form-control" id="refer" name="refer_id" placeholder = "Enter the referral code">
                                         <button type="submit" class="primary-btn">Apply</button>
                                     </form>
                                 @endif
-                                @else
+                            @elseif (session()->get('refer')['id'] && !request()->is('guestCheckout'))
                                 <h3>Referral Code</h3>
                                 <div style = "margin-left:-80px"><br>
                                 {{session()->get('refer')['id']}}
@@ -77,8 +77,10 @@
                                 </div>
                                 @endif
                             </div>
+                            @if (!request()->is('guestCheckout'))
                             <label for="referral id">Copy the below code and send to any other person. If he/she will use this code while checkout the cart then he/she will get discount and you will get cashback to your vegifruit wallet. <sup>*T&C If anyone else has already referred by him/her then your code will be invalid.</sup></label>
                             <input type="text" class="form-control" id="referral id" name="referral id" value="{{ substr(auth()->user()->phone, 3, -3) . auth()->user()->id }}"readonly>
+                            @endif
                     </div>
                     <div class="col-lg-4">
                         <div class="order_box">
@@ -106,7 +108,7 @@
                                 <li><a href="#">Total <span>{{ presentPrice($newTotal) }}</span></a></li>
                             </ul>
                             <div class="row contact_form">
-                            @if (!session()->get('wallet')['value'])
+                            @if (!session()->get('wallet')['value'] && !request()->is('guestCheckout'))
                                 @if (auth()->user()->wallet != 0)
                                     <form action="{{ route('wallet.store') }}" method="POST">
                                         {{ csrf_field() }}
@@ -114,7 +116,7 @@
                                         <button type="submit" class="primary-btn">Use it</button>
                                     </form>
                                 @endif
-                                @else
+                            @elseif (session()->get('wallet')['value'] && !request()->is('guestCheckout')) 
                                 <h3>Referral Code</h3>
                                 <div style = "margin-left:-80px"><br>
                                 </div>
