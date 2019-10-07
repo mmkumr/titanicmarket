@@ -623,7 +623,7 @@
                                                           </a>
                                                         </th>
                                                         <th class="menu_bar_item last" style="width: 33%; mso-line-height-rule: exactly; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; font-weight: 400; line-height: 26px; text-transform: uppercase; color: #bdbdbd; border-right-color: #dadada; border-right-style: none; border-left-color: #dadada; border-left-style: solid; letter-spacing: 1px; border: 0;" align="center" bgcolor="#ffffff">
-                                                          <a href="www/vegifruit.com/contact" target="_blank" style="color: #bdbdbd; text-decoration: none !important; text-underline: none; word-wrap: break-word; text-align: center !important; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; font-weight: 400; line-height: 26px; text-transform: uppercase; letter-spacing: 1px;">
+                                                          <a href="www.vegifruit.com/contact" target="_blank" style="color: #bdbdbd; text-decoration: none !important; text-underline: none; word-wrap: break-word; text-align: center !important; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; font-weight: 400; line-height: 26px; text-transform: uppercase; letter-spacing: 1px;">
                                                             Contact Us
                                                           </a>
                                                         </th>
