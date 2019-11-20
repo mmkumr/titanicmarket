@@ -38,6 +38,14 @@
                                 <div class="col-md-6 form-group p_star">
                                     <input type="text" class="form-control" id="name" name="name" value="{{$name}}" placeholder = "Name" required>
                                 </div>
+                                Area name:
+                                <div class="col-md-12 form-group p_star">
+                                    <select name="block" required>
+                                        @foreach (App\Block::orderby('name', 'asc')->get() as $block)
+                                            <option>{{$block['name']}}</option>
+                                        @endforeach 
+                                    </select>
+                                </div>
                                 <div class="col-md-12 form-group p_star">
                                     <input type="text" class="form-control" id="address" name="address" value="{{$address}}" placeholder = "Address" required>                            
                                 </div>
@@ -152,6 +160,9 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementsByName("block")[0].value = "{{$block}}"
+        </script>
     </section>
     <!--================End Checkout Area =================-->
 @endsection 

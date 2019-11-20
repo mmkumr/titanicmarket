@@ -378,7 +378,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/salty-snacks.
 <table cellpadding="0" cellspacing="0" border="0" bgcolor="#9E1030"  style="border:0px none;border-radius:30px;border-collapse:separate !important;background-color:#9E1030" class="full-width">
 <tr>
 <td valign="top" align="center"  style="padding-top:12px;padding-right:22px;padding-bottom:11px;padding-left:22px"><a 
-href="https://www.vegifruit.in" target="_blank"  style="text-decoration:none;" class="edm_button"><span  style="font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:17px;color:#FFFFFF;line-height:19px;text-decoration:none;"><span class="mso-font-fix-tahoma">Our WEBSITE</span></span>
+href="https://www.hungerrasoi.com" target="_blank"  style="text-decoration:none;" class="edm_button"><span  style="font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:17px;color:#FFFFFF;line-height:19px;text-decoration:none;"><span class="mso-font-fix-tahoma">Our WEBSITE</span></span>
 </a></td>
 </tr>
 </table>
@@ -455,8 +455,8 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/fav.png" widt
 <td  style="padding:0px">
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
-<td valign="top"  style="padding-top:10px;padding-right:10px;padding-bottom:20px;padding-left:10px"><div  style="text-align:left;font-family:Tahoma, Verdana, Segoe, sans-serif;font-size:15px;color:#000000;line-height:23px;mso-line-height:exactly;mso-text-raise:4px"><p style="padding: 0; margin: 0;text-align: center;"><strong>CONTACT INFO:</strong></p><p style="padding: 0; margin: 0;text-align: center;">&nbsp;</p><p style="padding: 0; margin: 0;"><strong>Address:</strong> Co-operative Colony lane 3rd, Berhampur, Odisha</p><p style="padding: 0; margin: 0;"><strong>Phone:</strong> +91 8337908779</p><p style="padding: 0; margin: 0;"><strong>E-mail:</strong> <a href="mailto:vegifruit@gmail.com" target="_blank" style="color: #000000 !important; text-decoration: underline !important;"><font
-style=" color:#000000;">vegifruitcare@gmail.com</font></a></p></div></td>
+<td valign="top"  style="padding-top:10px;padding-right:10px;padding-bottom:20px;padding-left:10px"><div  style="text-align:left;font-family:Tahoma, Verdana, Segoe, sans-serif;font-size:15px;color:#000000;line-height:23px;mso-line-height:exactly;mso-text-raise:4px"><p style="padding: 0; margin: 0;text-align: center;"><strong>CONTACT INFO:</strong></p><p style="padding: 0; margin: 0;text-align: center;">&nbsp;</p><p style="padding: 0; margin: 0;"><strong>Address:</strong> Co-operative Colony lane 3rd, Berhampur, Odisha</p><p style="padding: 0; margin: 0;"><strong>Phone:</strong> +91 8337908779</p><p style="padding: 0; margin: 0;"><strong>E-mail:</strong> <a href="mailto:hungerrasoicare@gmail.com" target="_blank" style="color: #000000 !important; text-decoration: underline !important;"><font
+style=" color:#000000;">hungerrasoicare@gmail.com</font></a></p></div></td>
 </tr>
 </table>
 </td>

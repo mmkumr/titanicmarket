@@ -39,6 +39,7 @@ class CheckoutController extends Controller
             $state = "";
             $phone = "";
             $referred = "";
+            $block = "";
         }
         else {
             $email = auth()->user()->email;
@@ -49,6 +50,7 @@ class CheckoutController extends Controller
             $state = auth()->user()->state;
             $phone = auth()->user()->phone;
             $referred = auth()->user()->referred;
+            $block = auth()->user()->block;
         }
 
 
@@ -79,6 +81,7 @@ class CheckoutController extends Controller
             'state' => $state,
             'phone' => $phone,
             'referred' => $referred,
+            'block' => $block,
         ]);
     }
 
@@ -91,6 +94,16 @@ class CheckoutController extends Controller
      */
     public function cod(CheckoutRequest $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'name' => 'required',
+            'address' => 'required',
+            'block' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'postalcode' => 'required|numeric|digits:6',
+            'phone' => 'required|numeric',
+        ]);
         // Check race condition when there are less items available to purchase
         if ($this->productsAreNoLongerAvailable()) {
             return back()->withErrors('Sorry! One of the items in your cart is no longer avialble.');
@@ -203,10 +216,9 @@ class CheckoutController extends Controller
     {
         // Insert into orders table
         $order = Order::create([
-            'user_id' => auth()->user() ? auth()->user()->id : null,
             'billing_email' => $request->email,
             'billing_name' => $request->name,
-            'billing_address' => $request->address,
+            'billing_address' => $request->address . '(' . $request->block . ')',
             'billing_city' => $request->city,
             'billing_province' => $request->province,
             'billing_postalcode' => $request->postalcode,

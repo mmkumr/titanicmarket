@@ -25,8 +25,8 @@ class Subscribe extends Mailable
     public function build()
     {
         return $this->to($this->subscriber->email, $this->subscriber->name)
-                    ->from("vegifruitcare@gmail.com", "Vegifruit Newsletter")
-                    ->subject('Subscription to Vegifruit')
+                    ->from("hungerrasoicare@gmail.com", "HungerRasoi Newsletter")
+                    ->subject('Subscription to HungerRasoi')
                     ->markdown('emails.subscribe');
     }
 }
