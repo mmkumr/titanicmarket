@@ -42,7 +42,7 @@
                             <h4>{{$user->name}}</h4>
                             <p><strong>E-Mail:-</strong>{{$user->email}}</p>
                             <p><strong>Phone No.:-</strong>{{$user->phone}}</p>
-                            <p><strong>Address:-</strong>{{$user->address . ', ' . $user->city  . ', ' . $user->state . ', ' . $user->pin_code}}</p>
+                            <p><strong>Address:-</strong>{{$user->address . '(' . $user->block . ')' . ', ' . $user->city  . ', ' . $user->state . ', ' . $user->pin_code}}</p>
                             <p><strong>Wallet Balance:-</strong>{{ "₹" . $user->wallet }}</p>
                             <div class="br"></div>
                             <div class="hover">

@@ -46,7 +46,8 @@
 						<h3>{{ $product->name }}</h3>
 						<h2>{{ $product->presentPrice() }}</h2>
 						<ul class="list">
-							<li><span>Category</span> : {{$categories->where('id', $cid)->first()->name}}</li>
+                            <li><span>Category</span> : {{$categories->where('id', $cid)->first()->name}}</li>
+                            <li><span>{{$product->details}}</li>
 							<li><span>Availibility</span> : {!! $stockLevel !!}</li>
 						</ul>
                         <div class="card_area d-flex align-items-center">

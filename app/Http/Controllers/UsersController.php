@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -82,7 +81,7 @@ class UsersController extends Controller
         if ($request->hasFile('dp')) {
             $image = request()->file('dp');
             $name = request()->email.'.'.$image->getClientOriginalExtension();
-            $destinationPath = basepath().'storage/app/public/users';
+            $destinationPath = base_path().'storage/app/public/users';
             $image->move($destinationPath, $name);
             $user->dp = 'users/'.$name;
         }

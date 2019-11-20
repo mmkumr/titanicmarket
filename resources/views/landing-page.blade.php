@@ -72,8 +72,8 @@
 						<div class="f-icon">
 							<img src="img/features/f-icon6.png" alt=""height = 50px>
 						</div>
-						<h6>Carrier Charges</h6>
-						<p>Carrier charges are applied on every purchase.</p>
+						<h6>Delevery timings</h6>
+						<p>12:00 PM to 04:00 PM<br>07:00 PM to 10:00 PM</p>
 					</div>
                 </div>
 			</div>
@@ -172,7 +172,7 @@
 				<div class="row justify-content-center">
 					<div class="col-lg-6 text-center">
 						<div class="section-title">
-							<h1>Vegifruit Specials</h1>
+							<h1>HungerRasoi Specials</h1>
 						</div>
 					</div>
 				</div>

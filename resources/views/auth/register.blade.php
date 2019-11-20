@@ -1,8 +1,7 @@
 @extends ('layout')
 @section ('title', 'Register')
-
 @section ('content')
-    <!--================Login Box Area =================-->
+        <!--================Login Box Area =================-->
     <section class="login_box_area section_gap">
         <div class="container">
 			<div class="row">
@@ -41,22 +40,32 @@
 								<input type="text" class="form-control" id="name" name="name" placeholder = 'Name' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'"required>
                             </div>
                             <div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="email" name="email" placeholder = 'Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"required>
-                            </div>
-                            <div class="col-md-12 form-group">
 								<input type="tel" class="form-control" id="phone" name="phone"  placeholder = 'Phone Number' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required>
+                            </div>
+                            <div>
+                            Area Name:
+                            <div class="col-md-12 form-group"> 
+                                <select name="block">
+                                    @foreach (App\Block::orderby('name', 'asc')->get() as $block)
+                                        <option>{{$block['name']}}</option>
+                                    @endforeach 
+                                </select>
+                            </div>
                             </div>
                             <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="address" name="address" placeholder = 'Address' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'"required>
                             </div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="city" name="city" placeholder = 'City' onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'"required>
+								<input type="text" class="form-control" id="city" name="city" placeholder = 'City' onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'" value = "Brahmapur" required readonly>
                             </div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="state" name="state" placeholder = 'State' onfocus="this.placeholder = ''" onblur="this.placeholder = 'State'"required>
+								<input type="text" class="form-control" id="state" name="state" placeholder = 'State' onfocus="this.placeholder = ''" onblur="this.placeholder = 'State'" value = "Odisha" required readonly>
                             </div>
                             <div class="col-md-12 form-group">
 								<input type="number" class="form-control" id="pin_code" name="pin_code" placeholder = 'Pin Code' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pin Code'"required>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="email" name="email" placeholder = 'Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"required>
                             </div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>

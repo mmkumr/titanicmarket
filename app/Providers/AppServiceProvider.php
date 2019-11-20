@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use App\Category;
+use App\Block;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
@@ -16,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $categories = Category::orderby('name', 'asc')->get();
         view()->share('categories', $categories);
+        $blocks = Block::orderby('created_at', 'asc')->get();
     }
 
     /**

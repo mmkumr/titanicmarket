@@ -16,7 +16,7 @@
         <!-- meta character set -->
         <meta charset="UTF-8">
         <!-- Site Title -->
-        <title>Vegifruit | @yield('title', '')</title>
+        <title>HungerRasoi | @yield('title', '')</title>
 
     </head>
     @include('partials.css')
