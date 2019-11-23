@@ -5,7 +5,7 @@ use App\Category;
 use App\Block;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
-
+use Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +17,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $categories = Category::orderby('name', 'asc')->get();
         view()->share('categories', $categories);
-        $blocks = Block::orderby('created_at', 'asc')->get();
     }
 
     /**

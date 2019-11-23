@@ -26,8 +26,7 @@
 					<ul class="main-categories">
 						@foreach ($categories as $category)
                         <li class="main-nav-list child"><a href="{{ route('shop.index', ['category' => $category->slug]) }}">{{ $category->name }}<span class="number">({{$productcount($category->id)}})</span></a></li>
-                        @endforeach
-					</ul>
+                        @endforeach </ul>
 				</div>
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
@@ -60,7 +59,13 @@
 								<!--<a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="" width="200px" height="200px"></a> -->
 								<div class="product-details">
 									<a href="{{ route('shop.show', $product->slug) }}"><h6>{{ $product->name }}</h6></a>
-									<div class="price">
+                                    <div class="price">
+                                        @if ($product->quantity == 0)
+                                            {{ "Out of stock" }}</br>
+                                        @else
+                                            {{ "In stock" }}</br>
+                                        @endif
+                                        {{ $product->details }}</br>
 										<h6>{{ $product->presentPrice() }}</h6>
                                     </div>
                                     <form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
