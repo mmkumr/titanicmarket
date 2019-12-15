@@ -27,7 +27,7 @@ return [
                  * Directories used by the backup process will automatically be excluded.
                  */
                 'exclude' => [
-                    base_path("../vegifruit"),
+                    base_path("../hungerrasoi"),
                 ],
                 /*
                  * Determines if symlinks should be followed.

@@ -300,7 +300,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/logo.png" wid
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
     <td valign="top"  style="padding-top:10px;padding-right:10px;padding-bottom:30px;padding-left:10px"><div  style="text-align:left;font-family:Garamond, Adobe Garamond Pro, Palatino, Times New Roman, serif;font-size:15px;color:#000000;line-height:23px;mso-line-height:exactly;mso-text-raise:4px"><h3 style="font-family:Garamond, Adobe Garamond Pro, Palatino, Times New Roman, serif; font-size: 18px; color: #9E1030; line-height: 27px; mso-line-height: exactly; mso-text-raise: 4px; padding: 0; margin: 0;"><span class="mso-font-fix-arial"><strong>Dear {{request()->name}},</strong></span></h3><p style="padding: 0; margin: 0;">&nbsp;</p><p
-style="padding: 0; margin: 0;">    We deliver fresh fruits, vegetables, dry fruits, and Berhampur special(napkins, pickles, papads, etc) items. Now we are only providing fruits and vegetables for Berhampur.</p></div></td>
+style="padding: 0; margin: 0;">    We deliver Veg thali, Non-Veg thali, and curries for Berhampur. In veg thali we are having Mushroom thali, Paneer thali and thali of the day. In Non-veg thali we are having Chicken thali, Egg thali and fish thali. In Extras we are having mushroom curry, panneer curry, chicken curry,fish curry, egg curry, curry of the day and fry of the day.</p></div></td>
 </tr>
 </table>
 
@@ -316,7 +316,7 @@ style="padding: 0; margin: 0;">    We deliver fresh fruits, vegetables, dry frui
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="193" height="164"  style="border:0px none;height:auto" class="full-width">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Fruits.jpg" width="193" height="164" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img193x164"  /></td>
+src="https://hungerrasoi.com/img/banner/banner1.jpg" width="193" height="164" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img193x164"  /></td>
 </tr>
 </table>
 </td>
@@ -336,7 +336,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Fruits.jpg" w
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="182" height="164"  style="border:0px none;height:auto" class="full-width">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Dry_Fruits.jpg?token=AEFF3UL5644A4XF4QKV4D4K5EN5DY" width="182" height="164" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img182x164"  /></td>
+src="https://hungerrasoi.com/img/banner/banner2.jpg" width="182" height="164" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img182x164"  /></td>
 </tr>
 </table>
 </td>
@@ -356,7 +356,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/Dry_Fruits.jp
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="206" height="155"  style="border:0px none;height:auto" class="full-width">
 <tr>
 <td valign="top"  style="padding:0px"><img 
-src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/salty-snacks.jpg" width="206" height="155" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img206x155"  /></td>
+src="https://hungerrasoi.com/img/banner/banner3.jpg" width="206" height="155" alt="" border="0"  style="display:block;width:100%;height:auto" class="full-width img206x155"  /></td>
 </tr>
 </table>
 </td>
@@ -455,7 +455,7 @@ src="https://raw.githubusercontent.com/mmkumr/pictures/master/mail/fav.png" widt
 <td  style="padding:0px">
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
-<td valign="top"  style="padding-top:10px;padding-right:10px;padding-bottom:20px;padding-left:10px"><div  style="text-align:left;font-family:Tahoma, Verdana, Segoe, sans-serif;font-size:15px;color:#000000;line-height:23px;mso-line-height:exactly;mso-text-raise:4px"><p style="padding: 0; margin: 0;text-align: center;"><strong>CONTACT INFO:</strong></p><p style="padding: 0; margin: 0;text-align: center;">&nbsp;</p><p style="padding: 0; margin: 0;"><strong>Address:</strong> Co-operative Colony lane 3rd, Berhampur, Odisha</p><p style="padding: 0; margin: 0;"><strong>Phone:</strong> +91 8337908779</p><p style="padding: 0; margin: 0;"><strong>E-mail:</strong> <a href="mailto:hungerrasoicare@gmail.com" target="_blank" style="color: #000000 !important; text-decoration: underline !important;"><font
+<td valign="top"  style="padding-top:10px;padding-right:10px;padding-bottom:20px;padding-left:10px"><div  style="text-align:left;font-family:Tahoma, Verdana, Segoe, sans-serif;font-size:15px;color:#000000;line-height:23px;mso-line-height:exactly;mso-text-raise:4px"><p style="padding: 0; margin: 0;text-align: center;"><strong>CONTACT INFO:</strong></p><p style="padding: 0; margin: 0;text-align: center;">&nbsp;</p><p style="padding: 0; margin: 0;"><strong>Address:</strong>Berhampur, Odisha</p><p style="padding: 0; margin: 0;"><strong>Phone:</strong> +91 7008385613</p><p style="padding: 0; margin: 0;"><strong>E-mail:</strong> <a href="mailto:hungerrasoicare@gmail.com" target="_blank" style="color: #000000 !important; text-decoration: underline !important;"><font
 style=" color:#000000;">hungerrasoicare@gmail.com</font></a></p></div></td>
 </tr>
 </table>

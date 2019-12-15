@@ -7,23 +7,22 @@
     <div class="container">
         <div class="row">
 
-    <div class = mapBox style="overflow:hidden;width: 1500px;position: relative;"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=19.30831325779045%2C%2084.80447129817136+(vegifruit)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/">Embedgooglemaps.com/</a> & </small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
+    <div class = mapBox style="overflow:hidden;width: 1500px;position: relative;"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Berhampur%2Codisha+(HungerRasoi)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/">Embedgooglemaps.com/</a> & </small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
             <div class="col-lg-3">
 
                 <div class="contact_info">
                     <div class="info_item">
                         <i class="lnr lnr-home"></i>
-                        <h6>Co-operative Colony lane 3rd,</h6>
                         <p>Berhampur, Odisha, India</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
-                        <h6>918337908779</h6>
+                        <h6>+917008385613</h6>
                         <p>Mon to Fri 9am to 6 pm</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
-                        <h6><a href="mailto:vegifruit@gmail.com">vegifruit@gmail.com</a></h6>
+                        <h6><a href="mailto:hungerrsoicare@gmail.com">hungerrasoicare@</br>gmail.com</a></h6>
                         <p>Send us your query anytime!</p>
                     </div>
                 </div>

@@ -3,33 +3,58 @@
 
 @section ('content')
 	<!-- start banner Area -->
-	<section class="banner-area">
-		<div class="container">
-			<div class="row fullscreen align-items-center justify-content-start">
-				<div class="col-lg-12">
-					<div class="active-banner-slider owl-carousel">
-						<!-- single-slide -->
-						<div class="row single-slide align-items-center d-flex">
-							<div class="col-lg-5 col-md-6">
-								<div class="banner-content">
-									<h1><br>Special thalis and curries<br>at cheaper prices.</h1>
-								</div>
-							</div>
-						</div>
-						<!-- single-slide -->
-						<div class="row single-slide">
-							<div class="col-lg-5">
-								<div class="banner-content">
-									<h1><br>Specials thalis and curries<br>at cheaper prices.</h1>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End banner Area -->
+        <script>
+            $('#myCarousel').carousel({
+            interval: 3000,
+            })
+        </script>
+        <!------ Include the above in your HEAD tag ---------->
+
+        <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">
+
+        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" style="padding-top:150px">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="mask flex-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7 col-12 order-md-1 order-2">
+                
+              <h7 style="font-size:40px; color:#FFFFFF">Use coupon code off20 for 20% discount. Get special thalis and curries at affordable price</h7>
+              </div>
+            <div class="col-md-5 col-12 order-md-2 order-1"><img src="img/banner/banner1.jpg" class="mx-auto" alt="slide"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="mask flex-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7 col-12 order-md-1 order-2">
+              <h7 style="font-size:40px; color:#FFFFFF">Use coupon code off20 for 20% discount. Get special thalis and curries at affordable price</h7>
+              </div>
+            <div class="col-md-5 col-12 order-md-2 order-1"><img src="img/banner/banner2.jpg" class="mx-auto" alt="slide"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="mask flex-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7 col-12 order-md-1 order-2">
+              <h7 style="font-size:40px; color:#FFFFFF">Use coupon code off20 for 20% discount. Get special thalis and curries at affordable price</h7>
+              </div>
+            <div class="col-md-5 col-12 order-md-2 order-1"><img src="img/banner/banner3.jpg" class="mx-auto" alt="slide"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+<!--slide end--> 
+          
 
 	<!-- start features Area -->
 	<section class="features-area section_gap">
@@ -84,6 +109,7 @@
     @php ( $col = array(0, 8, 4, 4, 8, 8, 4, 4, 8) )
     <!-- Start category Area -->
 	<section class="category-area">
+	<h1 align='center'>Categories</h1>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-12 col-md-12">
@@ -95,10 +121,10 @@
 							<div class="single-deal">
                                 <div class="overlay"></div>
                                 @if ($col[$i] == 4)
-								    <img  src="img/category/{{$category->slug}}.jpg" alt="" width="350px" height="295px">
+								    <img  src="img/category/{{$category->slug}}.jpg" class="img-fluid w-100" height='290' width='345'>
                                 @endif
                                 @if ($col[$i] == 8)
-								    <img src="img/category/{{$category->slug}}.jpg" alt="" width="730px" height="295px">
+								    <img src="img/category/{{$category->slug}}.jpg" alt="" class="img-fluid w-100" height='290' width='730'>
                                 @endif
 									<div class="deal-details">
 										<h6 class="deal-title">{{$category->name}}</h6>
@@ -140,6 +166,11 @@
                                     <h6>{{$product->name}}</h6>
                                 </a>
 								<div class="price">
+								@if ($product->quantity == 0)
+                                            				{{ "Out of stock" }}</br>
+                                        			@else
+                                            				{{ "In stock" }}</br>
+                                        			@endif
 									<h6>{{ $product->presentPrice() }}</h6>
 								</div>
 								<form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
@@ -183,13 +214,18 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<a href="{{ route('shop.show', $product->slug) }}">
-                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt="" width="200px" height="200px">
+                                <img  src="{{ productImage($product->image) }}" alt="" width="200px" height="200px">
                             </a>
                             <div class="product-details">
                                 <a href="{{ route('shop.show', $product->slug) }}">
                                     <h6>{{$product->name}}</h6>
                                 </a>
 								<div class="price">
+								@if ($product->quantity == 0)
+                                            				{{ "Out of stock" }}</br>
+                                        			@else
+                                            				{{ "In stock" }}</br>
+                                        			@endif
 									<h6>{{ $product->presentPrice() }}</h6>
 								</div>
 								<form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
@@ -238,6 +274,7 @@
 								<div class="desc">
 									<a href="{{ route('shop.show', $product->slug) }}" class="title">{{$product->name}}</a>
 									<div class="price">
+									
 										<h6>{{ $product->presentPrice() }}</h6>
 									</div>
 								</div>
@@ -251,4 +288,17 @@
     </section>
     @endif
 	<!-- End related-product Area -->
+    <script>
+    	var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+    	if(is_mobile) {
+    		var all = document.getElementsByClassName('img-fluid w-100');
+    		var i=0;
+		for (i, max=all.length; i < max; i++) {
+   			document.getElementsByClassName('img-fluid w-100');
+		}
+		for (i, max=all.length; i < max; i++) {
+   			document.getElementsByClassName('img-fluid w-100')[i].removeAttribute('class');
+		}
+    	}
+    </script>
 @endsection

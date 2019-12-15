@@ -5,7 +5,7 @@
                 <div class="single-footer-widget">
                     <h6>About Us</h6>
                     <p>
-                       We deliver fresh fruits, vegitables, dry fruits and Berhampur special(namkins, pickles, papads etc) items.
+                       We deliver veg thali, non-veg thali, curries.
                     </p>
                 </div>
             </div>
@@ -16,8 +16,10 @@
                             {{ session()->get('subscribe_message') }}
                         </div>
                     @endif
+                    
                     <h6>Newsletter</h6>
-                    <p>Stay update with our latest</p>
+                    <p>Stay update with our latest(This feature will be soon available for all.)</p>
+                    
                     <div class="" id="mc_embed_signup">
                         <form class="row login_form" action="{{ route('subscribe') }}" method="POST" id="subscribe">
                             {{ csrf_field() }}
@@ -27,6 +29,7 @@
                                 
                             </div>
                             <a class="click-btn btn btn-default" href="#" onclick="document.getElementById('subscribe').submit()"><span class="lnr lnr-arrow-right"></span></a>
+                           
                             <div class="info"></div>
                         </form>
                         @if (session()->has('subscribe_message'))
@@ -35,6 +38,7 @@
                             </script>
                             
                         @endif
+                        
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@
         </div>
         <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
             <p class="footer-text m-0">
-Copyright &copy;2019 All rights reserved by AMTech
+Copyright &copy;2019 All rights reserved by hungerrasoi
 </p>
         </div>
     </div>

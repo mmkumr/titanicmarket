@@ -59,9 +59,9 @@
                             @endif
                         </div>
 
-                        <label for="referral id">Copy the below text and send us as message/WhatsApp to our official phone no. 8337908779. We will call you as soon as possible.</label>
+                        <label for="referral id">Copy the below text and send us as message/WhatsApp to our official phone no. 7008385613. We will call you as soon as possible.</label>
                         <input type="text" class="form-control" id="referral id" name="referral id" value="Queries related to the product which has product id '{{ $product->id }}'."readonly style = "margin-bottom:10px">
-                        <a class="primary-btn" href="https://api.whatsapp.com/send?phone=918337908779&text=Queries related to the product which has product id '{{ $product->id }}'.">Send to WhatsApp</a>
+                        <a class="primary-btn" href="https://api.whatsapp.com/send?phone=917008385613&text=Queries related to the product which has product id '{{ $product->id }}'.">Send to WhatsApp</a>
 
 					</div>
 				</div>

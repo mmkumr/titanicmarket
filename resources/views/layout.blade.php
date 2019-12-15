@@ -21,7 +21,6 @@
     </head>
     @include('partials.css')
 <body>
-    <img src={{ asset("img/loading.gif") }} id="loader" style="display: block; position: fixed; left: 40%; top: 50%; right:50%; bottom:50%;"></img>
     @include('partials.nav') 
     @yield('content')
     @include('partials.footer')

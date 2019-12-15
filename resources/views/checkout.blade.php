@@ -146,6 +146,7 @@
                                     <div class="check"></div>
                                 </div>
                             </div>
+                            <!--
                             <div class="payment_item active">
                                 <div class="radion_btn">
                                     <input type="radio" id="f-option6" name="payment" onchange = "if(document.getElementsByName('payment')[1].checked) {document.paymentform.action = 'online'}">
@@ -154,7 +155,8 @@
                                     <div class="check"></div>
                                 </div>
                             </div> 
-                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit()">Proceed to Checkout</a>
+                            -->
+                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit(); alert('Please wait. We are conforming your order.')";>Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

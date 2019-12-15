@@ -21,8 +21,18 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand logo_h" href="{{ route('landing-page') }}"><img src="{{ asset('img/logo.png') }}" alt="" width="137px" height="70px"></a>
+
+  		<ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cart.index') }}" class="cart"><span class="ti-bag"></span>@if (Cart::instance('default')->count() > 0)<span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>@endif</a>
+                            <button class="search" style = "padding-left:30px"><span class="lnr lnr-magnifier" id="search"></span></button>
+                        </li>
+                </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Menu
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -31,6 +41,7 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                              aria-expanded="false">Shop</a>
@@ -76,10 +87,11 @@
                             <a href="{{ route('cart.index') }}" class="cart"><span class="ti-bag"></span>@if (Cart::instance('default')->count() > 0)<span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>@endif</a>
                             <button class="search" style = "padding-left:30px"><span class="lnr lnr-magnifier" id="search"></span></button>
                         </li>
-                    </ul>
+                </ul>
                 </div>
             </div>
         </nav>
+    </div>
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container">
@@ -96,4 +108,11 @@
             </form>
         </div>
     </div>
+    <script>
+    	var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
+    	if(!is_mobile) {
+    		document.getElementsByClassName('cart')[0].innerHTML=' ';
+    		document.getElementsByClassName('search')[0].innerHTML=' ';
+    	}
+    </script>
 </header>

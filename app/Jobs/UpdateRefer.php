@@ -34,7 +34,7 @@ class UpdateRefer implements ShouldQueue
     {
         session()->put('refer', [
             'id' => $this->refer,
-            'value' => 5000,
+            'value' => 500,
         ]);
     }
 }

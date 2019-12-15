@@ -36,6 +36,7 @@ class UpdateCoupon implements ShouldQueue
         if (Cart::currentInstance() === 'default') {
             session()->put('coupon', [
                 'name' => $this->coupon->code,
+                'type' => $this->coupon->type,
                 'discount' => $this->coupon->discount(Cart::subtotal()),
             ]);
         }

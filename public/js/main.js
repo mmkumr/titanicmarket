@@ -37,7 +37,7 @@ $(document).ready(function(){
     $("#close_search").on("click", function () {
         $('#search_input_box').slideUp(500);
         $(".nav-item").slideToggle();
-    });
+    });100
 
     /*==========================
 		javaScript for sticky header
