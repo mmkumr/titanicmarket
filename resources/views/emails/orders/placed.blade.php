@@ -580,7 +580,7 @@
                                                                 <p style="mso-line-height-rule: exactly; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; line-height: 26px; font-weight: 400; color: #666363; margin: 0;" align="left">Name: {{ $order->billing_name }}<br>
                                                                     
                                                                     Address: {{ $order->billing_address}}, {{ $order->billing_city}}, {{ $order->billing_province}}, {{ $order->billing_postalcode}}<br>
-                                                                    
+								    <b>Phone no:- {{ $order->billing_phone}}</b>
                                                               </th>
                                                             </tr>
                                                           </tbody></table>

@@ -31,6 +31,10 @@ class OrderPlaced extends Mailable
      */
     public function build()
     {
+        $headers  = "From: hungerrasoicare@gmail.com\r\n";
+        $headers .= "Reply-To: hungerrasoicare@gmail.com\r\n";
+        $headers .= "Return-Path: hungerrasoicare@gmail.com\r\n";
+        $headers .= "BCC: hungerrasoicare@gmail.com\r\n";
         return $this->to($this->order->billing_email, $this->order->billing_name)
                     ->bcc('hungerrasoicare@gmail.com')
                     ->from("hungerrasoicare@gmail.com", "HungerRasoi")

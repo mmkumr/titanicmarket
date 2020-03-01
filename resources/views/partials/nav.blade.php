@@ -44,7 +44,7 @@
 
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                             aria-expanded="false">Shop</a>
+                             aria-expanded="false">Categories</a>
                             <ul class="dropdown-menu">
                                 @foreach ($categories as $category)
                                     <li class="nav-item"><a class="nav-link" href="{{ route('shop.index', ['category' => $category->slug]) }}">{{ $category->name }}</a></li>

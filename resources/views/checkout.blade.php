@@ -67,7 +67,7 @@
                                 @if ($referred)
                                     <form action="{{ route('refer.store') }}" method="POST">
                                         {{ csrf_field() }}
-                                        <input type="number" class="form-control" id="refer" name="refer_id" placeholder = "Enter the referral code">
+                                        <input type="number" class="form-control" id="refer" name="refer_id" placeholder = "Enter the referral code" readonly>
                                         <button type="submit" class="primary-btn">Apply</button>
                                     </form>
                                 @endif
@@ -156,7 +156,7 @@
                                 </div>
                             </div> 
                             -->
-                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit(); alert('Please wait. We are conforming your order.')";>Proceed to Checkout</a>
+                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit(); alert('Please wait. We are conforming your order. Do not press the proceed to checkout button again.')";>Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

@@ -16,8 +16,8 @@ class OrdersController extends Controller
     {
         // $orders = auth()->user()->orders; // n + 1 issues
 
-        $orders = auth()->user()->orders()->with('products')->get(); // fix n + 1 issues
-
+        $orders = Order::all()->where("billing_email", auth()->user()->email);
+        //auth()->user()->orders()->with('products')->get(); // fix n + 1 issues
         return view('my-orders')->with('orders', $orders);
     }
 

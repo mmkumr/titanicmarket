@@ -17,7 +17,7 @@
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
-                        <h6>+917008385613</h6>
+                        <h6>+918337908779 </h6>
                         <p>Mon to Fri 9am to 6 pm</p>
                     </div>
                     <div class="info_item">

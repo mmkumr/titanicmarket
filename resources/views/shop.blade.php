@@ -57,7 +57,10 @@
                     <div class="product">
                         <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="product"></a>
                         <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
-                        <div class="product-price">{{ $product->presentPrice() }}</div>
+                        <div class="product-price">
+                            {{ $product->presentPrice() }}
+                            <h6 class="l-through">₹{{ trim($product->presentPrice(), '₹') + 10}}</h6>
+                        </div> 
                     </div>
                 @empty
                     <div style="text-align: left">No items found</div>

@@ -30,7 +30,7 @@
                     <div>
                     @endif
                         <div class="single-prd-item">
-                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt=""style = "height: 500px">
+                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt=""style = "height: 250px">
                         </div>
                         @if ($product->images)
                             @foreach (json_decode($product->images, true) as $image)
@@ -41,10 +41,10 @@
                         @endif
 					</div>
 				</div>
-				<div class="col-lg-5 offset-lg-1">
+                <div class="col-lg-5 offset-lg-1"> 
 					<div class="s_product_text">
 						<h3>{{ $product->name }}</h3>
-						<h2>{{ $product->presentPrice() }}</h2>
+                        <h2>{{ $product->presentPrice() }}</h2> 
 						<ul class="list">
                             <li><span>Category</span> : {{$categories->where('id', $cid)->first()->name}}</li>
                             <li><span>{{$product->details}}</li>
@@ -59,9 +59,9 @@
                             @endif
                         </div>
 
-                        <label for="referral id">Copy the below text and send us as message/WhatsApp to our official phone no. 7008385613. We will call you as soon as possible.</label>
+                        <label for="referral id">Copy the below text and send us as message/WhatsApp to our official phone no. 8337908779. We will call you as soon as possible.</label>
                         <input type="text" class="form-control" id="referral id" name="referral id" value="Queries related to the product which has product id '{{ $product->id }}'."readonly style = "margin-bottom:10px">
-                        <a class="primary-btn" href="https://api.whatsapp.com/send?phone=917008385613&text=Queries related to the product which has product id '{{ $product->id }}'.">Send to WhatsApp</a>
+                        <a class="primary-btn" href="https://api.whatsapp.com/send?phone=918337908779&text=Queries related to the product which has product id '{{ $product->id }}'.">Send to WhatsApp</a>
 
 					</div>
 				</div>
@@ -93,7 +93,8 @@
 								<div class="desc">
 									<a href="{{ route('shop.show', $product->slug) }}" class="title">{{ $product->name }}</a>
 									<div class="price">
-										<h6>{{ $product->presentPrice() }}</h6>
+                                        <h6>{{ $product->presentPrice() }}</h6>
+                                        <h6 class="l-through">₹{{ trim($product->presentPrice(), '₹') + 10}}</h6>
 									</div>
 								</div>
 							</div>

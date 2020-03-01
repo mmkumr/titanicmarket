@@ -66,7 +66,8 @@
                                             {{ "In stock" }}</br>
                                         @endif
                                         {{ $product->details }}</br>
-										<h6>{{ $product->presentPrice() }}</h6>
+                                        <h6>{{ $product->presentPrice() }}</h6>
+                                        <h6 class="l-through">₹{{ trim($product->presentPrice(), '₹') + 10}}</h6>
                                     </div>
                                     <form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
                                         {{ csrf_field() }}

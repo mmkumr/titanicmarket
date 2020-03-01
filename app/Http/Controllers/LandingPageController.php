@@ -19,7 +19,7 @@ class LandingPageController extends Controller
         $products = Product::where('featured', true)->take(9)->inRandomOrder()->get();
         $latest = Product::orderby('created_at', 'desc')->take(8)->get();
         $special = Product::with('categories')->whereHas('categories', function ($query) {
-            $query->where('slug', '=', 'veg-thali')->orWhere('slug', '=', 'non-veg-thali');
+            $query->where('slug', '=', 'pmec-specials')->orWhere('slug', '=', 'non-veg-thali');
             })->take(8)->inRandomOrder()->get();
         return view('landing-page')->with([
             'products' => $products,
