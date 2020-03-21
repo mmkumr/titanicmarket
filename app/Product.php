@@ -36,6 +36,10 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Category');
     }
+    public function weights()
+    {
+        return $this->belongsToMany('App\Weight');
+    }
 
     public function presentPrice()
     {

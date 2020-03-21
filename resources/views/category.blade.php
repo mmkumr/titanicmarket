@@ -67,15 +67,16 @@
                                         @endif
                                         {{ $product->details }}</br>
                                         <h6>{{ $product->presentPrice() }}</h6>
-                                        <h6 class="l-through">₹{{ trim($product->presentPrice(), '₹') + 10}}</h6>
                                     </div>
                                     <form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
                                         {{ csrf_field() }}
                                     </form>
 									<div class="prd-bottom">
+										@if (request()->category != "cakes")
 										<a href="javascript:document.getElementsByClassName('link-form-bag')[{{$i}}].submit()"  class="social-info">
 											<span class="ti-bag"></span>
 											<p class="hover-text">add to bag</p>
+										@endif
 										</a>
 										<a href="{{ route('shop.show', $product->slug) }}" class="social-info">
 											<span class="lnr lnr-move"></span>

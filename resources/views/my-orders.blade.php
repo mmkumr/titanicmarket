@@ -69,13 +69,22 @@
                             @foreach ($order->products as $product)
 							<tr>
 								<td>
+									@if($product->pivot->product_name)
+									<p><a href="{{ route('shop.show', $product->slug) }}">{{ $product->pivot->product_name }}</a></p>
+									@else
 									<p><a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a></p>
+									@endif
 								</td>
 								<td>
 									<h5>x {{ $product->pivot->quantity }}</h5>
 								</td>
 								<td>
+									@if($product->pivot->product_price)
+									<p>{{ presentPrice($product->pivot->product_price * $product->pivot->quantity) }}</p>
+
+									@else
 									<p>{{ presentPrice($product->price * $product->pivot->quantity) }}</p>
+									@endif
 								</td>
                             </tr>
                             @endforeach 

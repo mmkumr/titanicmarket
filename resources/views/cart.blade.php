@@ -46,17 +46,17 @@
                                         </div>
                                         <div class="media-body">
                                             <a href="{{ route('shop.show', $item->model->slug) }}">
-                                                <h3>{{ $item->model->name }}</h3><br>
+						<h3>{{$item->name}}</h3>
                                             </a>
                                             <p>{{ $item->model->details }}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>{{presentPrice($item->model->price)}}</h5>
+                                    <h5>{{presentPrice($item->price)}}</h5>
                                 </td>
                                 <td>
-                                    @php ($tprice = $item->model->price)
+                                    @php ($tprice = $item->price)
                                     <div class="product_count">
                                     <select class="quantity" data-id="{{ $item->rowId }}" data-productQuantity="{{ $item->model->quantity }}" onchange="x = {{$tprice}} * (this.value); document.getElementsByTagName('h4')[{{$t}}].innerHTML = '₹' + x/100;
                                    var sum = 0;

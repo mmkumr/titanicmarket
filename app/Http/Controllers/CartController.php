@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Weight;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
@@ -43,9 +44,15 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         }
 
-        Cart::add($product->id, $product->name, 1, $product->price)
-            ->associate('App\Product');
-
+      	if(array_key_exists('weight', $_REQUEST)) {
+		$weight = Weight::all()->where('id', $_REQUEST['weight'])->first()->weight;
+		Cart::add($product->id, $product->name . " " . $weight . " " . "kg", 1, $product->price * $_REQUEST['weight'])
+            	    ->associate('App\Product');
+	}
+	else {
+		Cart::add($product->id, $product->name, 1, $product->price)
+		    ->associate('App\Product');
+	}
         return redirect()->back()->with('success_message', 'Item has been added to your cart!');
     }
 
@@ -59,7 +66,7 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'quantity' => 'required|numeric|between:1,5'
+            'quantity' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
@@ -108,7 +115,6 @@ class CartController extends Controller
         if ($duplicates->isNotEmpty()) {
             return redirect()->route('cart.index')->with('success_message', 'Item is already Saved For Later!');
         }
-
         Cart::instance('saveForLater')->add($item->id, $item->name, 1, $item->price)
             ->associate('App\Product');
 

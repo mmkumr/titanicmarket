@@ -108,11 +108,9 @@ class CheckoutController extends Controller
         if ($this->productsAreNoLongerAvailable()) {
             return back()->withErrors('Sorry! One of the items in your cart is no longer avialble.');
         }
-
         $contents = Cart::content()->map(function ($item) {
             return $item->model->slug.', '.$item->qty;
         })->values()->toJson();
-
         try {
 //           $charge = Stripe::charges()->create([
 //               'amount' => getNumbers()->get('newTotal') / 100,
@@ -129,7 +127,7 @@ class CheckoutController extends Controller
 
             $order = $this->addToOrdersTablesCOD($request, null);
 
-            Mail::send(new OrderPlaced($order));
+            Mail::queue(new OrderPlaced($order));
             // decrease the quantities of all the products in the cart
             $this->decreaseQuantities();
             if(User::where('id', substr(session()->get('refer')['id'], 4))->first()) {
@@ -232,16 +230,18 @@ class CheckoutController extends Controller
             'payment_gateway' => 'Cash On delivery',
             'error' => $error,
         ]);
-
         // Insert into order_product table
         foreach (Cart::content() as $item) {
             OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $item->model->id,
                 'quantity' => $item->qty,
+		'product_name' => $item->name,
+		'product_price' => $item->price,
+
             ]);
         }
-
+	
         return $order;
     }
 

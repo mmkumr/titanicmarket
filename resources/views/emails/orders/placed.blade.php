@@ -449,7 +449,7 @@
                                                         
                                                         <th class="line-item-description" style="mso-line-height-rule: exactly; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; line-height: 26px; font-weight: 400; color: #666363; padding: 13px 6px 13px 0;" align="left" bgcolor="#ffffff" valign="top">
                                                           <p style="mso-line-height-rule: exactly; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; line-height: 26px; font-weight: 400; color: #666363; margin: 0;" align="left">
-                                                              {{ $product->name }}
+                                                              {{ $product->pivot->product_name }}
                                                             <br>
                                                             </p>
                                                           </th>
@@ -463,7 +463,7 @@
                                                           </th>
                                                           <th class="right line-item-line-price" width="1" style="mso-line-height-rule: exactly; white-space: nowrap; padding: 13px 0 13px 26px;" align="right" bgcolor="#ffffff" valign="top">
                                                             <p style="mso-line-height-rule: exactly; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'Karla'; font-size: 16px; line-height: 26px; font-weight: 400; color: #666363; margin: 0;" align="right">
-                                                              ₹{{ round($product->price / 100, 2) * $product->pivot->quantity }}
+                                                              ₹{{ round($product->pivot->product_price / 100, 2) * $product->pivot->quantity }}
                                                             </p>
                                                           </th>
                                                         </tr>

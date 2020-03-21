@@ -85,6 +85,15 @@
                                 @endforeach
                                 </ul>
                             </div> <!-- end form-group -->
+                            <div class="form-group">
+                                <label>Weights</label>
+
+                                <ul style="list-style-type: none; padding-left: 0">
+                                @foreach ($weights as $weight)
+                                    <li><label><input value="{{ $weight->id }}" type="checkbox" name="weight[]" style="margin-right: 5px;" {{ $weightForProduct->contains($weight) ? 'checked' : '' }}>{{ $weight->weight }}</label></li>
+                                @endforeach
+                                </ul>
+                            </div> <!-- end form-group -->
 
                         </div><!-- panel-body -->
 

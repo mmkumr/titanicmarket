@@ -30,7 +30,7 @@
                     <div>
                     @endif
                         <div class="single-prd-item">
-                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt=""style = "height: 250px">
+                                <img class="img-fluid" src="{{ productImage($product->image) }}" alt=""style = "height: 300px">
                         </div>
                         @if ($product->images)
                             @foreach (json_decode($product->images, true) as $image)
@@ -44,17 +44,33 @@
                 <div class="col-lg-5 offset-lg-1"> 
 					<div class="s_product_text">
 						<h3>{{ $product->name }}</h3>
-                        <h2>{{ $product->presentPrice() }}</h2> 
+						@if ($categories->where('id', $cid)->first()->name == 'Cakes')
+						<h2>Select weight to display the price.</h2>
+						@else
+                        			<h2>{{ $product->presentPrice() }}</h2> 
+                        			@endif
 						<ul class="list">
                             <li><span>Category</span> : {{$categories->where('id', $cid)->first()->name}}</li>
                             <li><span>{{$product->details}}</li>
 							<li><span>Availibility</span> : {!! $stockLevel !!}</li>
 						</ul>
+			                            
+                        		
                         <div class="card_area d-flex align-items-center">
                         @if ($product->quantity > 0)
                         <form action="{{ route('cart.store', $product) }}" method="POST" id = "cart">
-                            {{ csrf_field() }}
-                        </form>
+				@if ($categories->where('id', $cid)->first()->name == 'Cakes')	
+				<div>	
+					<select name="weight" onchange="document.getElementsByTagName('h2')[0].innerHTML = '₹' + ({{ trim($product->presentPrice(), '₹') }} * parseFloat(document.getElementsByName('weight')[0].value))">
+					    <option>Weight of the cake</option>
+					    @foreach ($product->weights()->orderby('id')->get() as $weight)
+						<option value = {{$weight['id']}}>{{$weight['weight']}} kg</option>
+					    @endforeach 
+					</select>
+				</div>
+				@endif
+                                {{ csrf_field() }}
+                        </form> 
                             <a class="primary-btn" href="#" onclick="document.getElementById('cart').submit()">Add to Cart</a>
                             @endif
                         </div>

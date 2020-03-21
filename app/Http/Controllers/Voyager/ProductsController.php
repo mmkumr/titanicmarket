@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Voyager;
 use App\Product;
 use App\Category;
 use App\CategoryProduct;
+use App\Weight;
+use App\ProductWeight;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\DB;
@@ -159,8 +161,10 @@ class ProductsController extends VoyagerBaseController
 
         $product = Product::find($id);
         $categoriesForProduct = $product->categories()->get();
+        $weights = Weight::all();
+        $weightForProduct = $product->weights()->get();
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'allCategories', 'categoriesForProduct'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'allCategories', 'categoriesForProduct', 'weights', 'weightForProduct'));
     }
 
     // POST BR(E)AD
@@ -194,10 +198,11 @@ class ProductsController extends VoyagerBaseController
             event(new BreadDataUpdated($dataType, $data));
 
             CategoryProduct::where('product_id', $id)->delete();
+            ProductWeight::where('product_id', $id)->delete();
 
             // Re-insert if there's at least one category checked
             $this->updateProductCategories($request, $id);
-
+	    $this->updateProductWeight($request, $id);
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([
@@ -252,8 +257,9 @@ class ProductsController extends VoyagerBaseController
 
         $allCategories = Category::all();
         $categoriesForProduct = collect([]);
-
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'allCategories', 'categoriesForProduct'));
+        $weightForProduct = collect([]);
+        $weights = Weight::all();
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'allCategories', 'categoriesForProduct', 'weightForProduct', 'weights'));
     }
 
     /**
@@ -288,7 +294,7 @@ class ProductsController extends VoyagerBaseController
             event(new BreadDataAdded($dataType, $data));
 
             $this->updateProductCategories($request, $data->id);
-
+	    $this->updateProductWeight($request, $data->id);
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([
@@ -305,6 +311,17 @@ class ProductsController extends VoyagerBaseController
                 CategoryProduct::create([
                     'product_id' => $id,
                     'category_id' => $category,
+                ]);
+            }
+        }
+    }
+    protected function updateProductWeight(Request $request, $id)
+    {
+        if ($request->weight) {
+            foreach ($request->weight as $weight) {
+                ProductWeight::create([
+                    'product_id' => $id,
+                    'weight_id' => $weight,
                 ]);
             }
         }

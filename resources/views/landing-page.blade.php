@@ -16,7 +16,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h7 style="font-size:40px; color:#FFFFFF">Meal and briyani will be unavailable till monday. </h7>
+                            <h7 style="font-size:40px; color:#FFFFFF">We are providing "use and throw" plates for PMEC students.</h7>
                         </div>
                         <div class="col-md-5 col-12 order-md-2 order-1"><img src="img/banner/banner1.jpg" class="mx-auto" alt="slide"></div>
                     </div>
@@ -28,7 +28,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h7 style="font-size:40px; color:#FFFFFF">20% off on every product.</h7>
+                            <h7 style="font-size:40px; color:#FFFFFF">20% off on PMEC specials.</h7>
                         </div>
                         <div class="col-md-5 col-12 order-md-2 order-1"><img src="img/banner/banner2.jpg" class="mx-auto" alt="slide"></div>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-7 col-12 order-md-1 order-2">
-                            <h7 style="font-size:40px; color:#FFFFFF">20% off on every product.</h7>
+                            <h7 style="font-size:40px; color:#FFFFFF">20% off on PMEC specials.</h7>
                         </div>
                         <div class="col-md-5 col-12 order-md-2 order-1"><img src="img/banner/banner3.jpg" class="mx-auto" alt="slide"></div>
                     </div>
@@ -111,15 +111,10 @@
                     @foreach ($categories as $category)
                     @php ($i = $i + 1)
                     <a href="{{ route('shop.index', ['category' => $category->slug]) }}">
-                        <div class="col-lg-{{$col[$i]}} col-md-{{$col[$i]}}">
+                        <div class="col-lg-8 col-md-8">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                @if ($col[$i] == 4)
                                 <img  src="img/category/{{$category->slug}}.jpg" class="img-fluid w-100" height='290' width='345'>
-                                @endif
-                                @if ($col[$i] == 8)
-                                <img src="img/category/{{$category->slug}}.jpg" alt="" class="img-fluid w-100" height='290' width='730'>
-                                @endif
                                 <div class="deal-details">
                                     <h6 class="deal-title">{{$category->name}}</h6>
                                 </div>
@@ -134,7 +129,7 @@
 </section>
 <!-- End category Area -->
 <!-- start product Area -->
-<section class="owl-carousel active-product-area section_gap">
+<section class="section_gap">
     <!-- single product slide -->
     <div class="single-product-slider">
         <div class="container">
@@ -165,7 +160,6 @@
                                 {{ "In stock" }}</br>
                                 @endif
                                 <h6>{{ $product->presentPrice() }}</h6>
-				                <h6 class="l-through">₹{{ trim($product->presentPrice(), '₹') + 10}}</h6>
                             </div>
                             <form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
                                 {{ csrf_field() }}
@@ -218,7 +212,6 @@
                                 {{ "In stock" }}</br>
                                 @endif
                                 <h6>{{ $product->presentPrice() }}</h6>
-				                <h6 class="l-through"><h6 class="l-through">₹{{ trim($product->presentPrice(), '₹') + 10}}</h6></h6>
                             </div>
                             <form action="{{ route('cart.store', $product) }}" method="POST" class = "link-form-bag">
                                 {{ csrf_field() }}
@@ -278,7 +271,7 @@
 </section>
 @endif
 <!-- End related-product Area -->
-<script>
+<!--<script>
     var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
     if(is_mobile) {
     	var all = document.getElementsByClassName('img-fluid w-100');
@@ -290,5 +283,5 @@
     	document.getElementsByClassName('img-fluid w-100')[i].removeAttribute('class');
     }
     }
-</script>
+</script> -->
 @endsection
