@@ -61,7 +61,7 @@
                         <form action="{{ route('cart.store', $product) }}" method="POST" id = "cart">
 				@if ($categories->where('id', $cid)->first()->name == 'Cakes')	
 				<div>	
-					<select name="weight" onchange="document.getElementsByTagName('h2')[0].innerHTML = '₹' + ({{ trim($product->presentPrice(), '₹') }} * parseFloat(document.getElementsByName('weight')[0].value))">
+					<select name="weight" onchange="document.getElementsByTagName('h2')[0].innerHTML = '₹' + ({{ trim($product->presentPrice(), '₹') }} * parseFloat(document.getElementsByName('weight')[0].value)); document.getElementsByClassName('primary-btn')[0].style.display = 'block'">
 					    <option>Weight of the cake</option>
 					    @foreach ($product->weights()->orderby('id')->get() as $weight)
 						<option value = {{$weight['id']}}>{{$weight['weight']}} kg</option>
@@ -71,7 +71,11 @@
 				@endif
                                 {{ csrf_field() }}
                         </form> 
-                            <a class="primary-btn" href="#" onclick="document.getElementById('cart').submit()">Add to Cart</a>
+				    @if ($categories->where('id', $cid)->first()->name == 'Cakes')
+				    <a class="primary-btn" href="#" onclick="document.getElementById('cart').submit()" style='display:none'>Add to Cart</a>
+				    @else
+				    <a class="primary-btn" href="#" onclick="document.getElementById('cart').submit()">Add to Cart</a>
+				    @endif
                             @endif
                         </div>
 
