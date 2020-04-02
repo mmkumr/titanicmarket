@@ -147,7 +147,7 @@
                                     <p align = 'center'>₹{{ trim(presentPrice($newTotal), '₹') + trim(presentPrice($discount), '₹') }}</p>
                                     <p align = 'center'>- {{ presentPrice($discount) }}</p>
                                     <h5 align = 'center'>Total</h5>
-                                    <p align = 'center'>₹{{ trim(presentPrice($newTotal), '₹') }}</p>
+                                    <p align = 'center'>₹{{ trim(presentPrice($newTotal), '₹') - trim(presentPrice($discount), '₹') }}</p>
                                 </td>
                                 <td>
                                 </td>

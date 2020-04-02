@@ -27,3 +27,11 @@
         })
     });	
     </script>
+    <!-- Popper js -->
+    <script src="{{ asset('js/essence/popper.min.js') }}"></script> 
+    <!-- Plugins js -->
+    <script src="{{ asset('js/essence/plugins.js') }}"></script> 
+    <!-- Classy Nav js -->
+    <script src="{{ asset('js/essence/classy-nav.min.js') }}"></script> 
+    <!-- Active js -->
+    <script src="{{ asset('js/essence/active.js') }}"></script> 
