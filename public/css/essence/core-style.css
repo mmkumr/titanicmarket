@@ -746,9 +746,10 @@ img {
     z-index: 1;
     overflow: hidden; }
     .single-product-wrapper .product-img img {
-      width: 100%;
-      -webkit-transition-duration: 500ms;
-      transition-duration: 500ms; }
+      width: 200px;
+      height:200px;
+      -webkit-transition-duration: 50ms;
+      transition-duration: 50ms; }
     .single-product-wrapper .product-img .hover-img {
       -webkit-transition-duration: 500ms;
       transition-duration: 500ms;

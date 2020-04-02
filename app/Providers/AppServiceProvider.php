@@ -18,10 +18,30 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $discount = \Session()->get('coupon')['discount'] + session()->get('refer')['value'] + session()->get('wallet')['value'] ?? 0;
+        function getNumbers()
+        {
+            $tax = config('cart.tax') / 100;
+            $discount = session()->get('coupon')['discount'] + session()->get('refer')['value'] + session()->get('wallet')['value'] ?? 0;
+            $code = session()->get('coupon')['name'] ?? null;
+            $newSubtotal = (Cart::subtotal() - $discount);
+            if ($newSubtotal < 0) {
+                $newSubtotal = 0;
+            }
+            $newTax = $newSubtotal * $tax;
+            $newTotal = $newSubtotal * (1 + $tax);
+
+            return collect([
+                'tax' => $tax,
+                'discount' => $discount,
+                'code' => $code,
+                'newSubtotal' => $newSubtotal,
+                'newTax' => $newTax,
+                'newTotal' => $newTotal,
+            ]);
+        }
         $categories = Category::orderby('name', 'asc')->get();
         view()->share( ['categories' => $categories,
-                        'discount' => $discount,
+                        'discount' => getNumbers()->get('discount'),
                         'newSubtotal' => getNumbers()->get('newSubtotal'),
                         'newTax' => getNumbers()->get('newTax'),
                         'newTotal' => getNumbers()->get('newTotal'),

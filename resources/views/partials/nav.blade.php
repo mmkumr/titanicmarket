@@ -118,8 +118,9 @@
                 <ul class="summary-table">
                     <li><span>subtotal:</span> <span>{{ presentPrice(Cart::subtotal()) }}</span></li>
                     <li><span>delivery:</span> <span>Free</span></li>
-                    <li><span>discount:</span> <span>-{{ presentPrice($discount) }}%</span></li>
-                    <li><span>total:</span> <span>{{ presentPrice($newSubtotal) }}</span></li>
+                    <li><span>discount:</span> <span>-{{ presentPrice(session()->get('coupon')['discount']) }}</span></li>
+                    @php ($discount = session()->get('coupon')['discount'])
+                    <li><span>total:</span> <span>{{ presentPrice(Cart::subtotal() - $discount) }}</span></li>
                 </ul>
                 @if (!session()->has('coupon'))
                 <div class="cupon_text d-flex align-items-center" align = right>

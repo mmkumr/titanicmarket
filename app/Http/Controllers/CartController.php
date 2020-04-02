@@ -44,12 +44,12 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         }
 
-      	if(array_key_exists('weight', $_REQUEST)) {
+      	if(array_key_exists('weight', $_REQUEST) && $_REQUEST['quantity'] < $product->quantity) {
 		$weight = Weight::all()->where('id', $_REQUEST['weight'])->first()->weight;
-		Cart::add($product->id, $product->name . " " . $weight . " " . "kg", 1, $product->price * $_REQUEST['weight'])
+		Cart::add($product->id, $product->name . " " . $weight . " " . "kg", $_REQUEST['quantity'], $product->price * $_REQUEST['weight'])
             	    ->associate('App\Product');
-	}
-	else {
+        }
+	elseif($_REQUEST['quantity'] < $product->quantity) {
 		Cart::add($product->id, $product->name, 1, $product->price)
 		    ->associate('App\Product');
 	}

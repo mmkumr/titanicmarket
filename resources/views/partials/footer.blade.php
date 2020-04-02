@@ -5,7 +5,7 @@
                 <div class="single-footer-widget">
                     <h6>About Us</h6>
                     <p>
-                       We deliver veg thali, non-veg thali, curries.
+                       We deliver good quality vegetables and groceries at cheapest price as possible.
                     </p>
                 </div>
             </div>
@@ -28,8 +28,7 @@
                                 <input class="form-control" name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required>
                                 
                             </div>
-                            <a class="click-btn btn btn-default" href="#" onclick="document.getElementById('subscribe').submit()"><span class="lnr lnr-arrow-right"></span></a>
-                           
+                            <a class="btn essence-btn" href="#" onclick="document.getElementById('subscribe').submit()">Subscribe</a>
                             <div class="info"></div>
                         </form>
                         @if (session()->has('subscribe_message'))
@@ -50,14 +49,14 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="mailto:vegifruit@gmail.com"><i class="fa fa-envelope"></i></a>
+                        <a href="mailto:tmcare@titanicmarket.com"><i class="fa fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
             <p class="footer-text m-0">
-Copyright &copy;2019 All rights reserved by hungerrasoi
+Copyright &copy;2019 All rights reserved by TitanicMarket
 </p>
         </div>
     </div>

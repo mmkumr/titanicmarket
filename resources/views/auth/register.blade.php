@@ -10,7 +10,7 @@
 						<img class="img-fluid" src="img/login.jpg" alt="">
 						<div class="hover">
 							<h4>Already have an account!!</h4>
-                            <a class="primary-btn" href="{{ route('login') }}">Login</a><br>
+                            <a class="btn essence-btn" href="{{ route('login') }}">Login</a><br>
 						</div>
 					</div>
 				</div>
@@ -42,16 +42,6 @@
                             <div class="col-md-12 form-group">
 								<input type="tel" class="form-control" id="phone" name="phone"  placeholder = 'Phone Number' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required>
                             </div>
-                            <div>
-                            Area Name:
-                            <div class="col-md-12 form-group"> 
-                                <select name="block">
-                                    @foreach (App\Block::orderby('name', 'asc')->get() as $block)
-                                        <option>{{$block['name']}}</option>
-                                    @endforeach 
-                                </select>
-                            </div>
-                            </div>
                             <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="address" name="address" placeholder = 'Address' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'"required>
                             </div>
@@ -75,7 +65,7 @@
 							</div>
 
 							<div class="col-md-12 form-group">
-								<button type="submit" class="primary-btn">Sign up</button>
+								<button type="submit" class="btn essence-btn">Sign up</button>
 							</div>
 						</form>
 					</div>

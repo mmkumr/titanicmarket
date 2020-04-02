@@ -2,16 +2,18 @@
 @section ('title', 'Profile')
 @section ('content')
 
-    <!-- Start Banner Area -->
-<div class="col-lg-12 col-md-12 col-sm-12">
-    <section class="banner-area organic-breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <img class="author_img rounded-circle" src="{{usersImage($user->dp)}}" alt="" style="display: block;margin-left: auto;margin-right: auto;height:200px;">
+                </div>
             </div>
         </div>
-        <img class="author_img rounded-circle" src="{{usersImage($user->dp)}}" alt="" style="display: block;margin-left: auto;margin-right: auto;height:200px;">
-    </section>
-    <!-- End Banner Area -->
+    </div>
+</div>
 
      <div class="container">
         @if (session()->has('success_message'))
@@ -74,7 +76,7 @@
                                 </div>
                                 <div class="br"></div>
                                 <div class="col-md-12 form-group">
-                                    <button type="submit" class="primary-btn">Update</button>
+                                    <button type="submit" class="btn essence-btn">Update</button>
                                 </div>
                             </form>
                             

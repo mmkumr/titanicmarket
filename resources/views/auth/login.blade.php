@@ -12,9 +12,13 @@
 					<div class="login_box_img">
 						<img class="img-fluid" src="img/login.jpg" alt="">
 						<div class="hover">
-							<h4>New to our website!!</h4>
-                            <a class="primary-btn" href="{{ route('register') }}">Create an Account</a><br>
-                            <a class="primary-btn" href="{{ route('guestCheckout.index') }}">Guest Account</a>
+                            <h4>New to our website!!</h4>
+                            <div>
+                            <a class="btn essence-btn" href="{{ route('register') }}">Create an Account</a><br>
+                            </div>
+                            <div style="padding-top:10px">
+                            <a class="btn essence-btn" href="{{ route('guestCheckout.index') }}">Guest Account</a>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -44,7 +48,7 @@
 								<input type="password" class="form-control" id="name" name="password" value="{{ old('password') }}" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" class="primary-btn">Log In</button>
+								<button type="submit" class="btn essence-btn">Log In</button>
 								<a href="{{ route('password.request') }}">Forgot Password?</a>
 							</div>
 						</form>

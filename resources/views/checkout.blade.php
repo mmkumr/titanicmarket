@@ -2,7 +2,22 @@
 @section ('title', 'Checkout')
 @section ('content')
     <!--================Checkout Area =================-->
-    <section class="checkout_area section_gap" style = "padding-top:150px">
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Checkout</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+
+    <section class="checkout_area section_gap">
         <div class="container">
         @if (session()->has('success_message'))
             <div class="spacer"></div>
@@ -38,14 +53,6 @@
                                 <div class="col-md-6 form-group p_star">
                                     <input type="text" class="form-control" id="name" name="name" value="{{$name}}" placeholder = "Name" required>
                                 </div>
-                                Area name:
-                                <div class="col-md-12 form-group p_star">
-                                    <select name="block" required>
-                                        @foreach (App\Block::orderby('name', 'asc')->get() as $block)
-                                            <option>{{$block['name']}}</option>
-                                        @endforeach 
-                                    </select>
-                                </div>
                                 <div class="col-md-12 form-group p_star">
                                     <input type="text" class="form-control" id="address" name="address" value="{{$address}}" placeholder = "Address" required>                            
                                 </div>
@@ -64,11 +71,11 @@
                             </form>
                             <div class="row contact_form">
                             @if (!session()->get('refer')['id'] && !request()->is('guestCheckout'))
-                                @if ($referred)
+                                @if (!auth()->user()->referred)
                                     <form action="{{ route('refer.store') }}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="number" class="form-control" id="refer" name="refer_id" placeholder = "Enter the referral code" readonly>
-                                        <button type="submit" class="primary-btn">Apply</button>
+                                        <button type="submit" class="btn essence-btn">Apply</button>
                                     </form>
                                 @endif
                             @elseif (session()->get('refer')['id'] && !request()->is('guestCheckout'))
@@ -121,7 +128,7 @@
                                     <form action="{{ route('wallet.store') }}" method="POST">
                                         {{ csrf_field() }}
                                         <h5>Use wallet money:  ₹{{ auth()->user()->wallet }}</h5>
-                                        <button type="submit" class="primary-btn">Use it</button>
+                                        <button type="submit" class="btn essence-btn">Use it</button>
                                     </form>
                                 @endif
                             @elseif (session()->get('wallet')['value'] && !request()->is('guestCheckout')) 
@@ -141,7 +148,7 @@
 
                             <div class="payment_item">
                                 <div class="radion_btn">
-                                    <input type="radio" id="f-option5" name="payment" onchange = "if(document.getElementsByName('payment')[0].checked) {document.paymentform.action = 'cod'}"checked>
+                                    <input type="radio" name="payment" onchange = "if(document.getElementsByName('payment')[0].checked) {document.paymentform.action = 'cod'}"checked>
                                     <label for="f-option5">Cash on Delivery</label>
                                     <div class="check"></div>
                                 </div>
@@ -156,7 +163,7 @@
                                 </div>
                             </div> 
                             -->
-                            <a class="primary-btn" href="#" onclick="document.getElementById('payment-form').submit(); alert('Please wait. We are conforming your order. Do not press the proceed to checkout button again.')";>Proceed to Checkout</a>
+                            <a class="btn essence-btn" href="#" onclick="document.getElementById('payment-form').submit(); alert('Please wait. We are conforming your order. Do not press the proceed to checkout button again.')";>Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>
